@@ -1,0 +1,23 @@
+# Generated directories
+node_modules/
+build/
+dist/
+
+# Mac OS X hidden files
+.DS_Store
+
+# Vim swap files
+.*.sw?
+
+# Gedit swap files
+*~
+
+# Logs
+*.log
+
+# Sublime Text
+*.sublime-*
+
+#heroku
+.env
+server/public/

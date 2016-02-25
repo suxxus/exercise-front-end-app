@@ -1,0 +1,44 @@
+{
+    "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, GET, DELETE, PUT",
+        "status": 200
+    },
+    "body": {
+        "user": "jhondoe@mail.com",
+        "chartTypes": [{
+            "id": 1,
+            "name": "pie",
+            "img": ""
+        }, {
+            "id": 2,
+            "name": "line",
+            "img": ""
+        }, {
+            "id": 3,
+            "name": "area",
+            "img": ""
+        }],
+        "charts": [{
+            "id": 1,
+            "chartType": 1,
+            "name": "Susy",
+            "metadata": {
+                "id": 1,
+                "limit": "limit riched: 500",
+                "updates": "125 updates",
+                "message": "monthly resolution"
+            }
+        }, {
+            "id": 2,
+            "chartType": 3,
+            "name": "Marina",
+            "metadata": {
+                "id": 2,
+                "limit": "limit riched: 300",
+                "updates": "98 updates",
+                "message": "monthly resolution"
+            }
+        }]
+    }
+}

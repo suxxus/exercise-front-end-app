@@ -1,0 +1,77 @@
+{
+    "user": "jhondoe@mail.com",
+    "chartTypes": [{
+        "id": 1,
+        "name": "pie",
+        "img": ""
+    }, {
+        "id": 2,
+        "name": "line",
+        "img": ""
+    }, {
+        "id": 3,
+        "name": "area",
+        "img": ""
+    }],
+    "charts": [{
+        "id": 1,
+        "chartType": 1,
+        "name": "Susy",
+        "metadata": {
+            "id": 1,
+            "limit": "limit riched: 500",
+            "updates": "125 updates",
+            "message": "monthly resolution"
+        }
+    }, {
+        "id": 2,
+        "chartType": 3,
+        "name": "Marina",
+        "metadata": {
+            "id": 2,
+            "limit": "limit riched: 300",
+            "updates": "98 updates",
+            "message": "monthly resolution"
+        }
+    }, {
+        "id": 3,
+        "chartType": 2,
+        "name": "Alice",
+        "metadata": {
+            "id": 3,
+            "limit": "limit riched: 200",
+            "updates": "95 updates",
+            "message": "monthly resolution"
+        }
+    }, {
+        "id": 4,
+        "chartType": 3,
+        "name": "Kim",
+        "metadata": {
+            "id": 4,
+            "limit": "limit riched: 100",
+            "updates": "152 updates",
+            "message": "monthly resolution"
+        }
+    }, {
+        "id": 5,
+        "chartType": 2,
+        "name": "Marie",
+        "metadata": {
+            "id": 5,
+            "limit": "limit riched: 200",
+            "updates": "452 updates",
+            "message": "monthly resolution"
+        }
+    }, {
+        "id": 6,
+        "chartType": 1,
+        "name": "Marie",
+        "metadata": {
+            "id": 6,
+            "limit": "limit riched: 98",
+            "updates": "120 updates",
+            "message": "monthly resolution"
+        }
+    }]
+}

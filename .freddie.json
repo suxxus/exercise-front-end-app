@@ -1,0 +1,8 @@
+[{
+    "name": "dev",
+    "root": "platform-ui/",
+    "port": 4501,
+    "fixtures": {
+        "/api": "fixtures"
+    }
+}]
