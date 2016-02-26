@@ -43,7 +43,6 @@
     "proxy-middleware": "^0.15.0",
     "react-addons-test-utils": "^0.14.7",
     "run-sequence": "^1.1.5",
-    "serve-favicon": "^2.3.0",
     "skin-deep": "^0.14.0",
     "tap": "^5.7.0",
     "tap-colorize": "^1.2.0",
