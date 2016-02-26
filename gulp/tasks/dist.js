@@ -3,6 +3,7 @@
 var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     uglify = require('gulp-uglify'),
+    htmlmin = require('gulp-htmlmin'),
     rimraf = require('gulp-rimraf'),
     paths = require('../paths-config');
 
@@ -17,17 +18,22 @@ gulp.task('compress:scripts', function() {
         .pipe(gulp.dest(paths.dist.scripts));
 });
 
-gulp.task('copy:html', function() {
-    return gulp.src(paths.index)
+gulp.task('copy:favicon', function() {
+    return gulp.src(paths.favicon)
         .pipe(gulp.dest(paths.dist.dir));
+});
+
+gulp.task('minify:html', function() {
+    return gulp.src(paths.index)
+        .pipe(htmlmin({ collapseWhitespace: true }))
+        .pipe(gulp.dest(paths.dist.dir))
 });
 
 gulp.task('dist', function() {
     runSequence(
-        ['clean:dist', 'clean'],
-        'lint', ['babelify:app'],
+        ['clean:dist', 'clean'], ['lint', 'babelify:app'],
         'compress:scripts',
-        'copy:html'
-
+        'minify:html',
+        'copy:favicon'
     );
 });

@@ -2,16 +2,16 @@
     "user": "jhondoe@mail.com",
     "chartTypes": [{
         "id": 1,
-        "name": "pie",
-        "img": ""
+        "name": "pie"
+
     }, {
         "id": 2,
-        "name": "line",
-        "img": ""
+        "name": "line"
+
     }, {
         "id": 3,
-        "name": "area",
-        "img": ""
+        "name": "area"
+
     }],
     "charts": [{
         "id": 1,

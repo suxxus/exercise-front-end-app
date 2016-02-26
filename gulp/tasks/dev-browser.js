@@ -13,7 +13,6 @@ gulp.task('dev-browser', function() {
     runSequence(['clean', 'clean:dist'],
         'lint',
         'exec-tests', ['babelify:app'],
-
         'copy:index-html',
         'browser-sync',
         'watch');
