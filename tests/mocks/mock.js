@@ -175,4 +175,4 @@ export const state = {
 };
 
 
-export const freezedState = () => deepFreeze(R.clone(state));
+export const freezedStateº = () => deepFreeze(R.clone(state));

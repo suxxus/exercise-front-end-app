@@ -1,9 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import {
-    equals, ifElse, omit, values, assoc, not, and, map
-}
-from 'ramda';
+import { equals, ifElse, omit, values, assoc, not, and, map } from 'ramda';
 import MetricLabel from './label-name.comp';
 import MetricName from './metric-name.comp';
 import DeleteMetric from './delete-metric.comp';
@@ -12,10 +9,7 @@ import Actionsbtns from './actions-btns.comp';
 import MetricCard from './metric-card.comp';
 import Info from './metric-info-metadata.comp';
 
-import {
-    SAVE_METRIC, UNDO_CHANGES,
-}
-from '../constants/actions';
+import { SAVE_METRIC, UNDO_CHANGES} from '../constants/actions';
 
 export
 default React.createClass({
@@ -23,12 +17,17 @@ default React.createClass({
     getInitialState() {
             const {
                 name,
-                chartType
-            } = this.utilityStateChart();
+                chartType,
+            } = this.utilityStateChart(),
+
+            { editable } = this.props;
 
             return {
                 name,
                 chartType,
+                editable,
+                isFetching: false,
+                updatedMetricId: false,
                 showWarning: false
             };
         },
@@ -38,6 +37,19 @@ default React.createClass({
             saveMetricData: React.PropTypes.func.isRequired,
             deleteMetricData: React.PropTypes.func.isRequired,
             chartIndex: React.PropTypes.number.isRequired
+        },
+
+        componentWillReceiveProps(next){
+          this.setState({
+            editable: next.editable,
+            isFetching: equals(String(this.props.chartIndex), next.isFetching),
+            updatedMetricId: equals(this.props.chartIndex, next.updatedMetricId)
+          });
+        },
+
+        shouldComponentUpdate(nextProps, nextState){
+            const stateNotEq = not(equals(this.state, nextState));
+            return stateNotEq;
         },
 
         utilityStateChart() {
@@ -101,10 +113,11 @@ default React.createClass({
 
         saveChanges() {
             // save/update metric
-            const value = {
+            const toOmitFromState = omit(['showWarning', 'editable', 'isFetching', 'updatedMetricId']),
+             value = {
                     userId: this.props.userId,
                     data: assoc('id', this.utilityStateChart().id,
-                      omit(['showWarning'], this.state))
+                       toOmitFromState(this.state))
                 },
 
                 isNewMetric = equals(true),
@@ -153,15 +166,16 @@ default React.createClass({
                     nameChangeHandler: this.changeName
                 });
 
+
             return (
                 <div className="mc-header">
-                    <div className={'right' + classnames({' hide': this.props.editable})}>
+                    <div className={'right' + classnames({' hide': this.state.editable} )}>
                         {metricLabel}
                     </div>
-                    <div className={'name-editable-r right' + classnames({' hide': not(this.props.editable)})}>
+                    <div className={classnames({'name-editable-r': true, 'right': true, 'hide': not(this.state.editable)})}>
                         {metricName}
                     </div>
-                    <div className={'left' + classnames({' hide': not(this.props.editable)})}>
+                    <div className={'left' + classnames({' hide': not(this.state.editable)})}>
                         {deleteMetric}
                     </div>
                 </div>
@@ -185,7 +199,7 @@ default React.createClass({
                     equals(this.utilityStateChart().chartType, this.state.chartType));
 
             return (
-                <div className={'mc-edit' + classnames({' hide': not(this.props.editable)})}>
+                <div className={'mc-edit' + classnames({' hide': not(this.state.editable)})}>
                     <div className="mobile">
                         {selectChart}
                     </div>
@@ -197,11 +211,12 @@ default React.createClass({
         },
 
         renderMetricCard() {
+
             const metricCard = React.createElement(MetricCard, {
                 comfirmDelete: this.deleteMetric,
                 id: this.props.chartIndex,
-                isFetching: this.props.isFetching,
-                updatedMetricId: this.props.updatedMetricId,
+                isFetching: this.state.isFetching,
+                updatedMetricId: this.state.updatedMetricId,
                 showWarning: this.state.showWarning,
                 chartSelected: this.utilityStateChartTypes()[String(this.state.chartType)].name,
                 'class-names': map(item => item.name, values(this.utilityStateChartTypes()))
@@ -218,14 +233,14 @@ default React.createClass({
                 metadata: this.utilityStateChartMetadata()
             });
 
-            return (<div className={'metadata' + classnames({' hide': this.props.editable})}>
+            return (<div className={'metadata' + classnames({' hide': this.state.editable})}>
                         {info}
                     </div>);
         },
 
         render() {
             return (
-                <div className={'metric-component' + classnames({' edit-mode': this.props.editable}) }>
+                <div className={'metric-component' + classnames({' edit-mode': this.state.editable}) }>
                   {this.renderHeader()}
                   {this.renderChartsActionsBtns()}
                   {this.renderMetricCard()}

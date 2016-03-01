@@ -36,4 +36,4 @@
    import './src/components/metric.comp.spec';
    import './src/components/main.section.spec';
 
-   import './src/containers/app.spec'
+   import './src/containers/app.spec';

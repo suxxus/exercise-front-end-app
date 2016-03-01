@@ -13,8 +13,7 @@ export const initialState = () => ({
     lastUpdated: null,
     result: {
         chartTypes: [],
-        charts: [],
-        userId: '',
+        charts: []
     },
     entities: {}
 });

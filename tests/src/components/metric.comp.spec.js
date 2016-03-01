@@ -4,9 +4,12 @@ import sd from 'skin-deep';
 import R from 'ramda';
 import main from 'scripts/components/metric.comp';
 import {
-    state, stateShapes, ConstantsActions
+    state,
+    stateShapes,
+    ConstantsActions
 }
 from '../../mocks/mock';
+import { deepFreeze } from '../../mocks/utils';
 
 let before = test,
     after = test,
@@ -18,24 +21,25 @@ let before = test,
     $ = React.createElement;
 
 const mockUpdateMetricData = (value) => {
-    const chart = R.merge(state.entities.charts[String(value.id)], value.data);
-    state.entities.charts[String(value.data.id)] = chart;
+    const id = instance.props.chartIndex;
+    instance.props = R.pipe(R.assocPath(['entities', 'charts', id, 'name'], value.data.name),
+        R.assocPath(['entities', 'charts', id, 'chartType'], value.data.chartType))(instance.props);
 };
 
 const mockSaveMericData = (value) => {
-    const chart = R.merge(state.entities.charts[String(value.id)], value.data);
-    state.entities.charts[String(value.data.id)] = chart;
+    const id = instance.props.chartIndex;
+    instance.props = R.assocPath(['entities', 'charts', id], value.data, instance.props);
 };
 
 const setup = (state, chartIndex) => {
 
-    props = state;
+    props = R.clone(state);
     props.updateMetricData = mockUpdateMetricData;
     props.saveMetricData = mockSaveMericData;
     props.deleteMetricData = R.F;
     props.chartIndex = chartIndex;
 
-    comp = $(main, props);
+    comp = $(main, deepFreeze(props));
     tree = sd.shallowRender(comp);
     vdom = tree.getRenderOutput();
     instance = tree.getMountedInstance();
@@ -43,8 +47,52 @@ const setup = (state, chartIndex) => {
 
 before('desc:', t => {
     t.pass('componets: metric.component');
-    setup(state, 1);
+    setup(R.clone(state), 1);
     t.end();
+});
+
+test('component will recive props', t => {
+
+    let actual, expect;
+
+    instance.componentWillReceiveProps({ editable: true });
+
+    actual = instance.state.editable;
+    expect = true;
+    t.equal(actual, expect, 'editable should be true');
+
+    instance.componentWillReceiveProps({ isFetching: '1' });
+    actual = instance.state.isFetching;
+    expect = true;
+    t.equal(actual, expect, 'isFetching should be true');
+
+    instance.componentWillReceiveProps({ updatedMetricId: 1 });
+    actual = instance.state.updatedMetricId;
+    expect = true;
+    t.equal(actual, expect, 'updatedMetricId should be true');
+
+    t.end();
+});
+
+test('should component update', t => {
+
+    const nextState = {
+        name: 'maria',
+        chartType: 1,
+        showWarning: false
+    };
+
+    const nextProps = R.clone(props);
+
+    let actual, expect;
+
+    actual = instance.shouldComponentUpdate(nextProps, nextState);
+    expect = true;
+
+    t.equal(actual, expect, 'state not eq, component should update');
+
+    t.end();
+
 });
 
 test('should render correctly', t => {
@@ -59,34 +107,37 @@ test('should render correctly', t => {
     expect = 'metric-component';
     t.equal(actual, expect, 'should be metric-component');
 
-    setup(R.assoc('editable', true, state), 1);
-
     actual = vdom.props.className;
-    expect = 'metric-component edit-mode';
-    t.equal(actual, expect, 'should be metric-component edit-mode');
+    expect = 'metric-component';
+    t.equal(actual, expect, 'should be metric-component');
 
     actual = typeof tree.dive(['.mc-header']);
     expect = 'object';
-    t.equal(actual, expect, 'header sould be defined');
+    t.equal(actual, expect, 'header should be defined');
 
     actual = typeof tree.dive(['.mc-edit']);
     expect = 'object';
-    t.equal(actual, expect, ' sould be defined');
+    t.equal(actual, expect, ' should be defined');
 
     actual = typeof tree.dive(['.mc-chart']);
     expect = 'object';
-    t.equal(actual, expect, 'mc-chart sould be defined');
+    t.equal(actual, expect, 'mc-chart should be defined');
 
     actual = typeof tree.dive(['.metadata']);
     expect = 'object';
-    t.equal(actual, expect, 'metadata sould be defined');
+    t.equal(actual, expect, 'metadata should be defined');
+
+    setup(R.assoc('editable', true, state), 1);
+    actual = vdom.props.className;
+    expect = 'metric-component edit-mode';
+    t.equal(actual, expect, 'should be metric-component ');
 
     t.end();
 });
 
 test('should render metric header', t => {
 
-    setup(state, 1);
+    setup(R.clone(state), 1);
 
     let tree = sd.shallowRender(instance.renderHeader),
         actual, expect;
@@ -99,7 +150,7 @@ test('should render metric header', t => {
     expect = 'mc-header';
     t.equal(actual, expect, 'should be mc-header');
 
-    //------------------------------------------------
+    // //------------------------------------------------
     actual = typeof tree.subTree('.right');
     expect = 'object';
     t.equal(actual, expect, 'label element should be defined');
@@ -116,17 +167,18 @@ test('should render metric header', t => {
     expect = 'Susy';
     t.equal(actual, expect, 'should be Susy');
 
-    setup(R.assoc('editable', true, state), 1);
-    tree = sd.shallowRender(instance.renderHeader);
 
     //-------------------------------------------------
+    instance.componentWillReceiveProps({ editable: true });
+    tree = sd.shallowRender(instance.renderHeader);
+
     actual = typeof tree.subTree('.name-editable-r');
     expect = 'object';
     t.equal(actual, expect, 'element editable name should be defined');
 
     actual = tree.subTree('.name-editable-r').props.className;
     expect = 'name-editable-r right';
-    t.equal(actual, expect, 'prop.editable = true, should be name-editable-r right');
+    t.equal(actual, expect, 'state.editable = true, should be name-editable-r right');
 
     actual = typeof tree.dive(['metric-name.comp']);
     expect = 'object';
@@ -156,7 +208,7 @@ test('should render metric select charts actions buttons', t => {
 
     let tree, actual, expect;
 
-    setup(state, 1);
+    setup(R.clone(state), 1);
     tree = sd.shallowRender(instance.renderChartsActionsBtns);
 
     actual = tree.getRenderOutput().type;
@@ -167,7 +219,7 @@ test('should render metric select charts actions buttons', t => {
     expect = 'mc-edit hide';
     t.equal(actual, expect, 'should be mc-edit hide');
 
-    setup(R.assoc('editable', true, state), 1);
+    instance.componentWillReceiveProps({ editable: true });
     tree = sd.shallowRender(instance.renderChartsActionsBtns);
 
     actual = tree.getRenderOutput().props.className;
@@ -183,7 +235,7 @@ test('should render metric select charts actions buttons', t => {
     t.equal(actual, expect, 'selectChart element should be defined');
 
     //---------------------------------------------------
-    setup(state, 1);
+    setup(R.clone(state), 1);
     tree = sd.shallowRender(instance.renderChartsActionsBtns);
 
     actual = tree.getRenderOutput().props.className;
@@ -196,7 +248,7 @@ test('should render metric select charts actions buttons', t => {
     t.equal(actual, expect, 'className should be metric-actions-btns hide');
 
     instance.setState({
-      'name': ''
+        'name': ''
     });
 
     tree = sd.shallowRender(instance.renderChartsActionsBtns);
@@ -214,7 +266,6 @@ test('should render metric select charts actions buttons', t => {
 test('should render metric card', t => {
 
     let tree, actual, expect;
-
     tree = sd.shallowRender(instance.renderMetricCard);
 
     actual = tree.getRenderOutput().type;
@@ -283,13 +334,11 @@ test('utilities should return chart props', t => {
     t.end();
 });
 
-
 test('selectChart', t => {
     instance.selectChart(2);
     const actual = instance.state.chartType,
         expect = 2;
     t.deepEqual(actual, expect, 'should return 2');
-
     t.end();
 });
 
@@ -310,7 +359,11 @@ test('undoChanges', t => {
     instance.setState({
         name: 'pedro',
         chartType: 2,
-        showWarning: true
+        editable: false,
+        isFetching: false,
+        updatedMetricId: false,
+        showWarning: true,
+
     });
 
     instance.undoChanges();
@@ -319,6 +372,9 @@ test('undoChanges', t => {
     expect = {
         name: state.entities.charts['1'].name,
         chartType: state.entities.charts['1'].chartType,
+        editable: false,
+        isFetching: false,
+        updatedMetricId: false,
         showWarning: false
     };
     t.deepEqual(actual, expect, 'should undoChanges');
@@ -340,24 +396,27 @@ test('saveChanges', t => {
 
     instance.saveChanges();
 
-    actual = state.entities.charts[2];
+    actual = instance.props.entities.charts[2];
     expect = {
         id: 2,
         name: 'peter',
-        chartType: 2
+        chartType: 2,
+        metadata: 2
     };
 
     t.deepEqual(actual, expect, 'should update changes');
 
+
     const newMetric = stateShapes.chartShape;
+
     newMetric.id = 3;
     newMetric.chartType = 2;
     newMetric.name = 'Ilaron';
-    state.entities.charts[3] = newMetric;
-    setup(state, 3);
+
+    setup(R.assocPath(['entities', 'charts', 3], newMetric, state), 3);
 
     instance.saveChanges();
-    actual = state.entities.charts[3];
+    actual = instance.props.entities.charts[3];
     expect = {
         id: 3,
         name: 'Ilaron',

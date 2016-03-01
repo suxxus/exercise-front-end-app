@@ -1,16 +1,8 @@
  import test from 'blue-tape';
  import React from 'react';
  import sd from 'skin-deep';
- import mock from 'mock';
- import {
-     ConstantsActions
- }
- from '../../mocks/mock';
-
-const main = mock('scripts/components/metric-card.comp', {
-        'scripts/constants/actions': ConstantsActions
-    },
-    require).default;
+ import main from 'scripts/components/metric-card.comp';
+ import { deepFreeze } from '../../mocks/utils';
 
  let before = test,
      after = test,
@@ -21,9 +13,9 @@ const main = mock('scripts/components/metric-card.comp', {
      instance,
      $ = React.createElement;
 
- const setup = (  showWarning = false,
-                  isFetching = ConstantsActions.FETCHING_NONE,
-                  updatedMetricId = NaN) => {
+ const setup = (showWarning = false,
+     isFetching = false,
+     updatedMetricId = false) => {
 
      props = {
          comfirmDelete: () => false,
@@ -38,7 +30,7 @@ const main = mock('scripts/components/metric-card.comp', {
 
  const doComp = () => {
 
-     comp = $(main, props);
+     comp = $(main, deepFreeze(props));
      tree = sd.shallowRender(comp);
      vdom = tree.getRenderOutput();
      instance = tree.getMountedInstance();
@@ -76,24 +68,24 @@ const main = mock('scripts/components/metric-card.comp', {
 
      actual = tree.getRenderOutput().props.className;
      expect = 'msgs hide';
-     t.equal(actual, expect, 'by default should be msg-success hide');
+     t.equal(actual, expect, 'by default should be msg hide');
 
-      setup(false, '1', 1);
-      doComp();
-      tree = sd.shallowRender(instance.renderSuccessMsg())
+     setup(false, false, true);
+     doComp();
+     tree = sd.shallowRender(instance.renderSuccessMsg())
 
      actual = tree.getRenderOutput().props.className;
      expect = 'msgs';
-     t.equal(actual, expect, 'should be msg-success');
+     t.equal(actual, expect, 'should be msg');
 
      t.end();
  });
 
-test('should renderAjaxLoader', t => {
+ test('should renderAjaxLoader', t => {
 
      let tree, actual, expect;
 
-     setup();
+     setup(false, true, false);
      doComp();
 
      tree = sd.shallowRender(instance.renderAjaxLoader())
@@ -103,8 +95,8 @@ test('should renderAjaxLoader', t => {
      t.equal(actual, expect, 'should be div');
 
      actual = tree.getRenderOutput().props.className;
-     expect = 'msgs hide';
-     t.equal(actual, expect, 'by default should be msg-success hide');
+     expect = 'msgs';
+     t.equal(actual, expect, 'by default should be msg hide');
 
      t.end();
  });
@@ -124,7 +116,7 @@ test('should renderAjaxLoader', t => {
      expect = 'msgs hide';
      t.equal(actual, expect, 'by default should be msg hide');
 
-     setup(true, '1');
+     setup(true, false, false);
      doComp();
      tree = sd.shallowRender(instance.renderWarningConfirm())
 
@@ -137,9 +129,9 @@ test('should renderAjaxLoader', t => {
 
  test('should render charts', t => {
 
-
      setup();
      doComp();
+
      let tree, actual, expect;
      tree = sd.shallowRender(instance.renderCharts())
 

@@ -1,6 +1,5 @@
 import React from 'react';
-import {equals, not, addIndex, map} from 'ramda';
-
+import {equals, not, addIndex, map, whereEq} from 'ramda';
 import classnames from 'classnames';
 export
 default React.createClass({
@@ -14,8 +13,8 @@ default React.createClass({
         propTypes: {
             comfirmDelete: React.PropTypes.func.isRequired,
             id: React.PropTypes.number.isRequired,
-            isFetching: React.PropTypes.string.isRequired,
-            updatedMetricId: React.PropTypes.number.isRequired,
+            isFetching: React.PropTypes.bool.isRequired,
+            updatedMetricId: React.PropTypes.bool.isRequired,
             showWarning: React.PropTypes.bool.isRequired,
             chartSelected: React.PropTypes.string.isRequired,
             'class-names': React.PropTypes.array.isRequired
@@ -28,11 +27,8 @@ default React.createClass({
         },
 
         renderSuccessMsg() {
-            const isSuccess = equals(this.props.id),
-                hideSuccessMsg = value => not(isSuccess(value));
-
             return (
-                <div className={'msgs' + classnames({' hide': hideSuccessMsg(this.props.updatedMetricId)})}>
+                <div className={'msgs' + classnames({' hide': not(this.props.updatedMetricId)})}>
                   <div className="card-message">
                     <div className="success">
                       <h3>Updated</h3>
@@ -43,10 +39,8 @@ default React.createClass({
         },
 
         renderAjaxLoader() {
-
-            const isFetching = equals(Number(this.props.isFetching), this.props.id);
             return (
-                <div className={'msgs' + classnames({' hide': not(isFetching)})}>
+                <div className={'msgs' + classnames({' hide': not(this.props.isFetching)})}>
                   <div className="card-message">
                     <div className="ajax-loader" />
                   </div>
@@ -79,12 +73,15 @@ default React.createClass({
 
         renderCharts() {
 
-            const showingWarning = this.props.showWarning,
-                showingLoader = equals(Number(this.props.isFetching), this.props.id),
-                showingUpdatedMsg = equals(this.props.updatedMetricId, this.props.id),
-                hideCharts = () => showingWarning || showingLoader || showingUpdatedMsg;
+                const pred = whereEq({
+                  showWarning: false,
+                  isFetching: false,
+                  updatedMetricId: false
+                }),
 
-            return (<ul id="charts-cont" className={'img-cont show-' + this.props.chartSelected + classnames({' hide': hideCharts()})}>
+                hideCharts = not(pred(this.props));
+
+            return (<ul id="charts-cont" className={'img-cont show-' + this.props.chartSelected + classnames({' hide': hideCharts})}>
                   {addIndex(map)((item, idx) => <li className={item} key={'chart_' + idx} />, this.props['class-names'])}
                 </ul>);
         },
