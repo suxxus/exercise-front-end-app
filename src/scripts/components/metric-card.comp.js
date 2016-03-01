@@ -4,11 +4,6 @@ import classnames from 'classnames';
 export
 default React.createClass({
 
-    getInitialState() {
-            return {
-                hideCharts: false
-            };
-        },
 
         propTypes: {
             comfirmDelete: React.PropTypes.func.isRequired,
