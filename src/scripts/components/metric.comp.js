@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { equals, ifElse, omit, values, assoc, not, and, map } from 'ramda';
+import { equals, ifElse, omit, values, assoc, not, and, map, prop } from 'ramda';
 import MetricLabel from './label-name.comp';
 import MetricName from './metric-name.comp';
 import DeleteMetric from './delete-metric.comp';
@@ -53,7 +53,7 @@ default React.createClass({
         },
 
         utilityStateChart() {
-            return this.props.entities.charts[this.props.chartIndex];
+            return prop(this.props.chartIndex)(this.props.entities.charts);
         },
 
         utilityStateChartTypes() {
