@@ -4,8 +4,8 @@ node_js:
   - "5.0"
 
 script:
-  - npm run check
   - npm test
+  - npm run check
 
 # whitelist
 branches:
