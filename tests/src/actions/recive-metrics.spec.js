@@ -5,7 +5,9 @@ import * as Mocked from '../../mocks/mock';
 
 const action = mock('scripts/actions/recive-metrics', {
             'scripts/constants/actions': Mocked.ConstantsActions,
-            'isomorphic-fetch': () => Promise.resolve(Mocked.metrics)
+            'isomorphic-fetch': () => Promise.resolve({
+                json: () => Mocked.metrics
+            })
         },
         require),
     before = test,
