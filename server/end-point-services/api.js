@@ -9,7 +9,7 @@ module.exports = function(app, opts) {
         var data = opts.getJson(pathtofile);
         res
             .status(200)
-            .send(data);
+            .send(JSON.stringify(data));
     });
 
     app.post('/api/:id/metrics', function(req, res) {
