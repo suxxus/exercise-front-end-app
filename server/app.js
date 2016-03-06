@@ -9,6 +9,7 @@ var express = require('express'),
 
 var app = express();
 app.use(bodyparser.urlencoded({ extended: true }));
+app.use(bodyparser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 endPoinstApi(app, {
