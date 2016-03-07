@@ -40,10 +40,16 @@ default React.createClass({
         },
 
         componentWillReceiveProps(next){
+
+          const { chartIndex, editable, isFetching, updatedMetricId } = next,
+              { name, chartType } = prop(chartIndex, next.entities.charts);
+
           this.setState({
-            editable: next.editable,
-            isFetching: equals(String(this.props.chartIndex), next.isFetching),
-            updatedMetricId: equals(this.props.chartIndex, next.updatedMetricId)
+            name: name,
+            chartType: chartType,
+            editable: editable,
+            isFetching: equals(String(chartIndex), isFetching),
+            updatedMetricId: equals(chartIndex, updatedMetricId)
           });
         },
 
@@ -53,11 +59,11 @@ default React.createClass({
         },
 
         utilityStateChart() {
-            return prop(this.props.chartIndex)(this.props.entities.charts);
+            return prop(this.props.chartIndex, this.props.entities.charts);
         },
 
         utilityStateChartTypes() {
-            return this.props.entities.chartTypes;
+            return prop('chartTypes', this.props.entities);
         },
 
         utilityStateChartMetadata() {

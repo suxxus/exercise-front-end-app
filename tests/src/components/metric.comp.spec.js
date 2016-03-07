@@ -55,19 +55,37 @@ test('component will recive props', t => {
 
     let actual, expect;
 
-    instance.componentWillReceiveProps({ editable: true });
+    const next = {
+
+        chartIndex: 1,
+        editable: true,
+        isFetching: '1',
+        updatedMetricId: 1,
+
+        entities: {
+            charts: {
+                1: {
+                    name: 'Paul',
+                    chartType: 2
+                }
+            }
+        }
+    };
+
+    instance.componentWillReceiveProps(next);
+
+    actual = instance.state.name;
+    expect = 'Paul';
+    t.equal(actual, expect, 'name should be Paul');
 
     actual = instance.state.editable;
     expect = true;
     t.equal(actual, expect, 'editable should be true');
 
-    instance.componentWillReceiveProps({ isFetching: '1' });
     actual = instance.state.isFetching;
     expect = true;
     t.equal(actual, expect, 'isFetching should be true');
 
-    instance.componentWillReceiveProps({ updatedMetricId: 1 });
-    actual = instance.state.updatedMetricId;
     expect = true;
     t.equal(actual, expect, 'updatedMetricId should be true');
 
@@ -169,7 +187,21 @@ test('should render metric header', t => {
 
 
     //-------------------------------------------------
-    instance.componentWillReceiveProps({ editable: true });
+    instance.componentWillReceiveProps({
+        chartIndex: 1,
+        editable: true,
+        isFetching: '1',
+        updatedMetricId: 1,
+
+        entities: {
+            charts: {
+                1: {
+                    name: 'Susy',
+                    chartType: 2
+                }
+            }
+        }
+    });
     tree = sd.shallowRender(instance.renderHeader);
 
     actual = typeof tree.subTree('.name-editable-r');
@@ -219,7 +251,21 @@ test('should render metric select charts actions buttons', t => {
     expect = 'mc-edit hide';
     t.equal(actual, expect, 'should be mc-edit hide');
 
-    instance.componentWillReceiveProps({ editable: true });
+    instance.componentWillReceiveProps({
+        chartIndex: 1,
+        editable: true,
+        isFetching: '1',
+        updatedMetricId: 1,
+
+        entities: {
+            charts: {
+                1: {
+                    name: 'Susy',
+                    chartType: 2
+                }
+            }
+        }
+    });
     tree = sd.shallowRender(instance.renderChartsActionsBtns);
 
     actual = tree.getRenderOutput().props.className;
