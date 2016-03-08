@@ -14,8 +14,8 @@ const initstate = pipe(assoc('userId', '1'), // TODO, get id from service
         metrics: initstate
     });
 
-render( < Provider store = { store } >
-    < App dispatch = { store.dispatch }
-    /> < /Provider>,
+render( <Provider store = { store }>
+        <App dispatch = { store.dispatch } />
+      </Provider>,
     document.querySelector('#platform-ui')
 );
