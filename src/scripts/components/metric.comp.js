@@ -49,7 +49,8 @@ default React.createClass({
             chartType: chartType,
             editable: editable,
             isFetching: equals(String(chartIndex), isFetching),
-            updatedMetricId: equals(chartIndex, updatedMetricId)
+            updatedMetricId: equals(chartIndex, updatedMetricId),
+            showWarning: false
           });
         },
 
