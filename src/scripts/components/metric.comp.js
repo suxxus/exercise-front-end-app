@@ -92,9 +92,10 @@ default React.createClass({
                 },
 
                 deleteMetricHandler = () => {
-                    const metricId = this.utilityStateChart().id;
+                    const metricId = this.utilityStateChart().id,
+                          { userId } = this.props;
                     this.props.deleteMetricData({
-                        userId: this.props.userId,
+                        userId,
                         metricId
                     });
                 },
