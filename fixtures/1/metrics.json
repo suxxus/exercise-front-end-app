@@ -22,7 +22,7 @@
             "name": "Susy",
             "metadata": {
                 "id": 1,
-                "limit": "limit riched: 500",
+                "limit": "limit reached: 500",
                 "updates": "125 updates",
                 "message": "monthly resolution"
             }
@@ -32,7 +32,7 @@
             "name": "Marina",
             "metadata": {
                 "id": 2,
-                "limit": "limit riched: 300",
+                "limit": "limit reached: 300",
                 "updates": "98 updates",
                 "message": "monthly resolution"
             }
