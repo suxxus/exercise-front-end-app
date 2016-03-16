@@ -213,11 +213,11 @@ To organize the application code on client Redux was used, I had never used this
 
 I started creating a Node app first, the idea was to concentrate on core logic first and then thinking about UI, and how fits on browser. 
 
-#### Redux modules, (toolbox: jslint  tapejs):
+#### Redux modules (toolbox: jslint  tapejs):
 It is really nice, not having to use the browser during the development phase.
 Each action, reducer or store have it's own unit test, connected to fake data,  so we can see how the module works completely isolated from the other modules. Finished this phase, we can test how it's operating with the state data. At the moment we don’t have a single React component. 
 
-#### Rect components (jslint tapejs Skin-deep):
+#### React components (jslint tapejs Skin-deep):
 Next task was to construct the view components with React that would be hydrated with the data coming from the state object. 
 Like Redux modules, each React component has its unit test. This way it's easy to see how it's working in an isolated manner before see it on browser. We have the HTML catalog to know how its look.
 
