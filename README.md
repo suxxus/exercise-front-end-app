@@ -236,9 +236,9 @@ The repo is associated with Heroku application, after completing Travis-ci tasks
 If you have heroku installed, you can run locally heroku to verify proper operation before making a deploy.
 
 Todo:
-* implement error response on client.
-* improve react components
-* improve unit test
+[] implement error response on client.
+[] improve react components
+[] improve unit test
 
 ## Some links that have been useful to me
 * http://redux.js.org/docs/introduction/index.html
