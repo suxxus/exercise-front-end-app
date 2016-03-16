@@ -1,48 +1,53 @@
-# Platform-ui exercice:
-https://platform-ui.herokuapp.com
-### Running App:
-Clone the project (git clone git@github.com:suxxus/exercise-platform-ui.git)
-- npm install
+# Platform-ui exercise
+***personal exercise to study front-end development technologies***
+* Standard ES6 modules using Babel + browserify
+* React + jsx + Redux
+* gulp
+## Demo:
+* application: https://platform-ui-app.herokuapp.com/
+* layout: https://platform-ui.herokuapp.com/
 
-##### run the app locally
-- npm start
-- open http://localhost:5000
+## Clone the repo & install:
+```
+git clone git@github.com:suxxus/exercise-front-end-app.git
+npm install 
+```
+## Scripts
+The `package.json` file comes with the following scripts
 
-### development
-- npm start
-- npm run dev
+`npm run <name of script>`
+* `start` runs the app  (http://localhost:5000)
+* `dist` generates a distribution version, placed at server
+* `dev` runs a dev console that reports lint and unit tests. 
+* `devb` launch a dev server providing the app at build 
+* `test` run provided unit test
 
-rnning test
-npm test
+## Overview:
+### Motivation:
+Some time ago, I received an exercise, it's part of the recruitment process  to evaluate the skills as front-end developer, specially oriented at the services that the company offer.
 
-### Overview:
+The job was not interested at that time. But I took it as an opportunity to gain knowledge about some technologies that do not use in everyday life , and to do things from the beginning to the end with total freedom.
 
-##### Motivación:
-Hace para una entrevista de trabajo, como desarrollador FRONT-END, recibí un ejercicio se instaba a que el aspirante al puesto, creará una pequeña aplicación (webapp). Supongo que sería un modo de evaluar los conocimientos técnicos del desarrollador.
+### Exercise description:
+#### Front end technical exercise:
+> The goal of this exercise is to turn the UI design we provide into a fully functional UI. It’s a small component in charge of creating/editing/deleting metrics corresponding to a
+SaaS provider.
+All interactions defined in the document should be implemented: 
+ * Editing mode toggler 
+ * Rename metric 
+ * Delete metric 
+ * Create new metric
+#### Prerequisites:
+* Browser support: IE10+, latest 2 versions of Chrome, Firefox, Safari, Opera 
+* You can use the JavaScript framework/libs of your choice. 
+* You don’t need to, but using a CSS pre/postprocessor will be appreciated. 
+* You have to use images, but we don’t want them as separate files. 
+* There is no time limit, but obviously we’ll take time into account. So please send us your exercise as soon as you’re done. 
+* It’s a webapp not a website. If you need to take semantic or architectural decisions, keep it in mind. 
+Feel free to surprise us if you want, you put the limit.
 
-Me llegaron unas pautas mínimas que debía cumplir la aplicación y básicamente dejan total libertad de acción para la realización del mismo.
-
-Pues llegado a ese punto me pareció bueno tomarlo como un ejercicio para desarrollar una app que tuviese como base para experimentar diferentes metodologías de trabajo y que me sirva como base para poder probar cosas nuevas que luego pudiese llevar al trabajo que realizamos en el dia a dia.
-
-### Pautas del ejercicio:
-Transformar la interfaz de usuario provista en una interfaz completamente funcional. Se trata de un pequeño componente  capaz de crear/editar/borrar métricas.
-
-### Interacciones que deben ser implementadas:
-
-- modo edición
-- renombrar la métrica
-- eliminar la métrica
-- rear una nueva métrica
-
-
-#### requisitos que deben cumplir:
-
-- Browser support: IE10+, latest 2 versions of Chrome, Firefox, Safari, Opera
-- Libertad total en el uso de framework/librería de javascript
-- Un plus si se utilizaba un preprocesador para CSS (less/sass/stylus, etc)
-
-### diseño funcional
-#### Main view ####
+#### Functional design:
+* Main view
 ```
 company logo
 edit mode                user account
@@ -55,8 +60,7 @@ edit mode                user account
 | name     | | name     | | metric  |
 +----------+ +----------+ +---------+
 ```
-----
-#### Edition mode ####
+* Edition mode
 ```
 company logo
 exit edit mode        user account
@@ -71,8 +75,7 @@ exit edit mode        user account
 |         x| |         x| |         x|
 +----------+ +----------+ +--------- +
 ```
-----
-#### Interactions ####
+* Interactions
 ```
 +----------+              +----------+      each metric has different metadata could be nothing
 | metric   |  on hover    | metric   |      or
@@ -85,8 +88,7 @@ exit edit mode        user account
                                             162 updates
                                             monthly/resolution
 ```
-----
-#### Edition mode interactions ####
+* Edition mode interactions
 ```
 +----------+                +----------+     The metric name becomes editable
 | metric   |  on click      | metric   |     Press enter to save
@@ -109,101 +111,30 @@ exit edit mode        user account
  new metric                                 Adds a new metric box to the list with
                                             editable name focused
 ```
-### Tecnología
-
-> Para su implementación se utilizaron las siguientes tecnologías:
-
+## Technology:
+used for implementation
 * React
 * Redux (to organize the application code)
-* Gulp
+* Normalizr  (Normalizes deeply nested JSON)
+* Gulp 
 * Browserify (bundling)
-* Eslint (para mantener una coherencia en el código)
+* Eslint (to ensure consistency in code)
 * Tapejs (unit testing)
-* skin-deep (Test assertion helpers for use with React's shallowRender test utils)
-* Babel (for ES6)
-* Ramdajs (practical functional library, data immutable)
-* jade (for templating)
-* sass
-* bourbon (mixin library for sass)
+* Skin-deep (Test assertion helpers for use with React's shallowRender test utils)
+* Babel (ES6 transpiler)
+* Ramdajs (practical functional library)
+* Jade (html templating)
+* Sass
+* Bourbon (mixin library for sass)
 * Express
 * Freddie (front-end developer server)
-* Browsersync (gulp)
+* Browsersync (synchronised browser testing)
 * Travis CI (continuous integration)
 * Heroku (Deploy)
 
+## Process:
+### Organizing the project:
 
-### Cómo se organiza el resultado del ejercicio
+*The work was divided in two phases, first the UI design, and in a second phase, the development using React/Redux library to manage data.*
 
-La home está compuesta por 4 secciones principales:
-
-Components Layout (HTML - CSS)
-Catálogo de componentes cada uno de los componentes que integran la aplicación maquetados por separado, Cada uno lleva asociado su código HTML, para poder ser utilizado a la hora de hacer el componente en React.
-Al tratarse de un layout responsive, su ancho es del 100% el contenedor padre determinará su ancho final.
-Algunos de estos componentes llevan asociados un javascript muy simple que sirve para ver su comportamiento, es solo de prueba, no siendo factible su utilización en el componente React.
-
-Metric component layout (HTML - CSS)
-El componente metric, compuesto por los sub-componentes del catálogo.
-
-
-Main layout (HTML - CSS)
-El layout de la app
-
-
-Platform-ui
-La aplicación completamente funcional
-
-
-Secciones secundarias
-link to readme
-
-
-link to clone repo from github (html, css)
-link to clone repo from github, (webapp)
-
-
-
-### Proceso:
-
-  necesidades -> diseño funcional -> layout -> style -> script -> deploy
-
-##### Diseño gráfico
-Mis conocimientos de UX y diseño gráfico no son muy profundos, así que procuró realizar un diseño   simple, utilizando algunos componentes que brinda la librería bourbon. Este aspecto es muy mejorable, tanto a nivel de experiencia de usuario como diseño visual. Ambos procesos son de suma importancia a la hora de desarrollar la app.
-
-
-##### Layout
-Con respecto a el marcado, quería realizar pequeños componentes que tuvieran pocas líneas de código, que fueran fáciles de modificar sin que afectara demasiado a los cambios que indefectiblemente deberán realizarse en el componente React a posteriori. Me decante por jade para los templates. Existe mucha controversia con jade, pero para este proyecto, sus ventajas a la hora de componentizar son de gran ayuda, características como “includes”, “mixins”, “extend”, etc, son para tener en cuenta a la hora de comenzar. De todos modos es un tema en el que sigo investigando, quiero conocer alternativas posibles, que faciliten la tarea entre maquetador y desarrollador.
-
-##### Style
-Para css, existen algunos desarrolladores que se inclinan por la inclusión de los estilos en línea, no estoy muy convencido de esa opción. Las desventajas de separar la presentación del estilo, me gustan, y por otro lado me parece más ventajoso darle independencia al maquetador. Así que cada componente tiene su correspondiente archivo .sass completamente independiente. Debido a la dependencia de Bourbon Css, los componentes se extienden para adaptarlos según sea necesario
-
-
-### Diseño de la app
-
-##### Task runner
-dev
-para el desarrollo, se hace sobre node, las tareas necesarias se configuran con gulp .Se utiliza Browser-sync (test en navegadores), actualmente configurado para dos entornos uno de desarrollo(3500). Y otro entorno de pre(4500).
-
-dist
-realiza las tareas de lint, minificado y copiado de archivos finales, para deploy
-
-
-Travis-ci
-Integración continua, asociado a github, cada vez que se realiza un push al repo, corre las tareas install, postinstall y los test unitarios
-
-Heroku
-Asociado al repo de la aplicación, luego de finalizada las tareas de travis-ci,  realiza automáticamente un deploy desde master.
-
-Si se tiene heroku instalado, se puede correr heroku de forma local para comprobar su correcto funcionamiento antes de realizar un deploy.
-
-npm run dist →>  heroku local -->  open http://localhost:4711
-
-
-
-#### To do:
-login form
-implement redux-route
-implelemt shouldComponentUpdate
-
-
-
-Algunos enlaces que me sirven de ayuda:
+I needed a user interface that will represent the state data and where changes made by the user may be reflected.
