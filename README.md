@@ -203,7 +203,7 @@ The app layout.
 #### Style:
 Each component has its corresponding completely independent .sass file. Due to the dependence of Bourbon Css, the components extend to fit as needed.
 
-### Platform-ui-app (https://platform-ui-app.herokuapp.com/ ):
+### Platform-ui-app (https://platform-ui-app.herokuapp.com/ )
 
 #### Server
 Back-end development was out of the scope of this exercise, so all we need is a minimum Restful Service to access, create, modify or delete the information. The restful api only returns a static json to GET data, and 200 as status code for the other actions(SAVE, DELETE, PUT). On the first phase of the project freddie plugin was used as a static server, it's a good option for prototyping before the server is released.
