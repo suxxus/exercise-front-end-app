@@ -140,3 +140,28 @@ used for implementation
 *The work was divided in two phases, first the UI design, and in a second phase, the development using React/Redux library to manage data.*
 
 I needed a user interface that will represent the state data and where changes made by the user may be reflected.
+
+#### Data:
+*A shape of the data that the application have to represent.*
+```
+{
+    "user": "jhondoe@mail.com",
+    "id": 1, 
+    "chartTypes": [{
+        "id": 1,
+        "name": "pie"
+    },  …. ], 
+
+    "charts": [{
+        "id": 1,
+        "chartType": 1,
+        "name": "Susy",
+        "metadata": {
+            "id": 1,
+            "limit": "limit reached: 500",
+            "updates": "125 updates",
+            "message": "monthly resolution"
+        }
+    }, ….]
+}
+```
