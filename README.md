@@ -235,7 +235,7 @@ continuous integration, associated with github, whenever a push action is done, 
 The repo is associated with Heroku application, after completing Travis-ci tasks, an automatic deploy is done. 
 If you have heroku installed, you can run locally heroku to verify proper operation before making a deploy.
 
-Todo:
+## Todo:
 - [ ] implement error response on client.
 - [ ] improve react components
 - [ ] improve unit test
