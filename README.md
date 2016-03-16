@@ -29,8 +29,7 @@ Some time ago, I received an exercise, it's part of the recruitment process  to 
 
 The job was not interested at that time. But I took it as an opportunity to gain knowledge about some technologies that do not use in everyday life , and to do things from the beginning to the end with total freedom.
 
-### Exercise description:
-#### Front end technical exercise:
+#### Front end technical exercise description:
 > The goal of this exercise is to turn the UI design we provide into a fully functional UI. It’s a small component in charge of creating/editing/deleting metrics corresponding to a
 SaaS provider.
 All interactions defined in the document should be implemented: 
@@ -136,7 +135,7 @@ used for implementation
 
 ## Process:
 
-### Organizing the project:
+#### Organizing the project:
 
 *The work was divided in two phases, first the UI design, and in a second phase, the development using React/Redux library to manage data.*
 
