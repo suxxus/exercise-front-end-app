@@ -135,6 +135,7 @@ used for implementation
 * Heroku (Deploy)
 
 ## Process:
+
 ### Organizing the project:
 
 *The work was divided in two phases, first the UI design, and in a second phase, the development using React/Redux library to manage data.*
