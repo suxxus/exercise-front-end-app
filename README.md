@@ -11,7 +11,7 @@
 ## Clone the repo & install:
 ```
 git clone git@github.com:suxxus/exercise-front-end-app.git
-npm install 
+npm install
 ```
 ## Scripts:
 The `package.json` file comes with the following scripts
@@ -19,8 +19,8 @@ The `package.json` file comes with the following scripts
 `npm run <name of script>`
 * `start` runs the app  (http://localhost:5000)
 * `dist` generates a distribution version, placed at server
-* `dev` runs a dev console that reports lint and unit tests. 
-* `devb` launch a dev server providing the app at build 
+* `dev` runs a dev console that reports lint and unit tests.
+* `devb` launch a dev server providing the app at build
 * `test` run provided unit test
 
 ## Overview
@@ -32,19 +32,19 @@ The job was not interested at that time. But I took it as an opportunity to gain
 #### Front end technical exercise description:
 > The goal of this exercise is to turn the UI design we provide into a fully functional UI. It’s a small component in charge of creating/editing/deleting metrics corresponding to a
 SaaS provider.
-All interactions defined in the document should be implemented: 
- * Editing mode toggler 
- * Rename metric 
- * Delete metric 
+All interactions defined in the document should be implemented:
+ * Editing mode toggler
+ * Rename metric
+ * Delete metric
  * Create new metric
- 
+
 #### Prerequisites:
-* Browser support: IE10+, latest 2 versions of Chrome, Firefox, Safari, Opera 
-* You can use the JavaScript framework/libs of your choice. 
-* You don’t need to, but using a CSS pre/postprocessor will be appreciated. 
-* You have to use images, but we don’t want them as separate files. 
-* There is no time limit, but obviously we’ll take time into account. So please send us your exercise as soon as you’re done. 
-* It’s a webapp not a website. If you need to take semantic or architectural decisions, keep it in mind. 
+* Browser support: IE10+, latest 2 versions of Chrome, Firefox, Safari, Opera
+* You can use the JavaScript framework/libs of your choice.
+* You don’t need to, but using a CSS pre/postprocessor will be appreciated.
+* You have to use images, but we don’t want them as separate files.
+* There is no time limit, but obviously we’ll take time into account. So please send us your exercise as soon as you’re done.
+* It’s a webapp not a website. If you need to take semantic or architectural decisions, keep it in mind.
 Feel free to surprise us if you want, you put the limit.
 
 #### Functional design:
@@ -117,7 +117,7 @@ used for implementation
 * React
 * Redux (to organize the application code)
 * Normalizr  (Normalizes deeply nested JSON)
-* Gulp 
+* Gulp
 * Browserify (bundling)
 * Eslint (to ensure consistency in code)
 * Tapejs (unit testing)
@@ -141,30 +141,6 @@ used for implementation
 
 I needed a user interface that will represent the state data and where changes made by the user may be reflected.
 
-#### Data:
-*A shape of the data that the application have to represent.*
-```
-{
-    "user": "jhondoe@mail.com",
-    "id": 1, 
-    "chartTypes": [{
-        "id": 1,
-        "name": "pie"
-    },  …. ], 
-
-    "charts": [{
-        "id": 1,
-        "chartType": 1,
-        "name": "Susy",
-        "metadata": {
-            "id": 1,
-            "limit": "limit reached: 500",
-            "updates": "125 updates",
-            "message": "monthly resolution"
-        }
-    }, ….]
-}
-```
 I'm not a graphic designer, but as we know, a good graphic design is of vital importance for every app, so I did everything possible to create an attractive and usable interface for the user. This was part of the exercise, and a  very pleasing task.
 
 First need was a logotype for a fictitious brand (‘FUNmetrics’). Then I drew several sketches on paper to get the component UI where the user would interact to modify data. From this point I defined, the footer for the app, and the other components.
@@ -180,6 +156,31 @@ I do not know if this is the best decision , but it helped me to focus first on 
 * **Platform-app:** the logic business with Redux, and the views with React.
 
 ## Development:
+
+### Data:
+*A shape of the data that the application have to represent.*
+```
+{
+    "user": "jhondoe@mail.com",
+    "id": 1,
+    "chartTypes": [{
+        "id": 1,
+        "name": "pie"
+    },  …. ],
+
+    "charts": [{
+        "id": 1,
+        "chartType": 1,
+        "name": "Susy",
+        "metadata": {
+            "id": 1,
+            "limit": "limit reached: 500",
+            "updates": "125 updates",
+            "message": "monthly resolution"
+        }
+    }, ….]
+}
+```
 
 ### Graphic design:
 As I said before, my knowledge of UX and graphic design is not enough, so I tried to make a simple design, using some components provided by Bourbon library. In this respect the application can be improved, both in terms of user experience and visual design. Both processes are of utmost importance when developing an app
@@ -211,14 +212,14 @@ Back-end development was out of the scope of this exercise, so all we need is a 
 #### Client:
 To organize the application code on client Redux was used, I had never used this architecture before, but I found very interested to  try it, it works very well with React that is used to build the UI; Ramda  was used to manipulate the state, Ramdajs never mutates input data. Gulp is used to ease development workflow, and Browserify is used to generate bundle file.
 
-I started creating a Node app first, the idea was to concentrate on core logic first and then thinking about UI, and how fits on browser. 
+I started creating a Node app first, the idea was to concentrate on core logic first and then thinking about UI, and how fits on browser.
 
 #### Redux modules (toolbox: jslint  tapejs):
 It is really nice, not having to use the browser during the development phase.
-Each action, reducer or store have it's own unit test, connected to fake data,  so we can see how the module works completely isolated from the other modules. Finished this phase, we can test how it's operating with the state data. At the moment we don’t have a single React component. 
+Each action, reducer or store have it's own unit test, connected to fake data,  so we can see how the module works completely isolated from the other modules. Finished this phase, we can test how it's operating with the state data. At the moment we don’t have a single React component.
 
 #### React components (jslint tapejs Skin-deep):
-Next task was to construct the view components with React that would be hydrated with the data coming from the state object. 
+Next task was to construct the view components with React that would be hydrated with the data coming from the state object.
 Like Redux modules, each React component has its unit test. This way it's easy to see how it's working in an isolated manner before see it on browser. We have the HTML catalog to know how its look.
 
 Then, we place it in a React components catalog on browser. This way we can see if it's working well on the integration with the browser.
@@ -232,7 +233,7 @@ For debugging on browsers, Browser-sync plugin is used, is a gulp task configure
 continuous integration, associated with github, whenever a push action is done, run the install, postinstall, check, and unit test tasks.
 
 ## Heroku
-The repo is associated with Heroku application, after completing Travis-ci tasks, an automatic deploy is done. 
+The repo is associated with Heroku application, after completing Travis-ci tasks, an automatic deploy is done.
 If you have heroku installed, you can run locally heroku to verify proper operation before making a deploy.
 
 ## Todo:
