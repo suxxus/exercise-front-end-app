@@ -176,8 +176,8 @@ The decision was to separate the html markup and styles from logic. So it would 
 I do not know if this is the best decision , but it helped me to focus first on the behavior of each component separately before bringing them to Redux / React. Also, when I was working on the application logic , if I found that something of the user interface was not working properly, it was necessary to change from the application project to the UI project  to modify it, and see if it was working well, isolated from React.
 
 #### Two projects for a single result:
-**Platform-UI:** a catalog of all the subcomponents that the application needs.
-**Platform-app:** the logic business with Redux, and the views with React.
+* **Platform-UI:** a catalog of all the subcomponents that the application needs.
+* **Platform-app:** the logic business with Redux, and the views with React.
 
 
 
