@@ -199,3 +199,31 @@ Composed with the sub-components from the catalog.
 
 #### Main layout:
 The app layout.
+
+#### Style:
+Each component has its corresponding completely independent .sass file. Due to the dependence of Bourbon Css, the components extend to fit as needed.
+
+### Platform-ui-app (https://platform-ui-app.herokuapp.com/ ):
+
+#### Server
+Back-end development was out of the scope of this exercise, so all we need is a minimum Restful Service to access, create, modify or delete the information. The restful api only returns a static json to GET data, and 200 as status code for the other actions(SAVE, DELETE, PUT). On the first phase of the project freddie plugin was used as a static server, it's a good option for prototyping before the server is released.
+
+#### Client:
+To organize the application code on client Redux was used, I had never used this architecture before, but I found very interested to  try it, it works very well with React that is used to build the UI; Ramda  was used to manipulate the state, Ramdajs never mutates input data. Gulp is used to ease development workflow, and Browserify is used to generate bundle file.
+
+I started creating a Node app first, the idea was to concentrate on core logic first and then thinking about UI, and how fits on browser. 
+
+#### Redux modules, (toolbox: jslint  tapejs):
+It is really nice, not having to use the browser during the development phase.
+Each action, reducer or store have it's own unit test, connected to fake data,  so we can see how the module works completely isolated from the other modules. Finished this phase, we can test how it's operating with the state data. At the moment we don’t have a single React component. 
+
+#### Rect components (jslint tapejs Skin-deep):
+Next task was to construct the view components with React that would be hydrated with the data coming from the state object. 
+Like Redux modules, each React component has its unit test. This way it's easy to see how it's working in an isolated manner before see it on browser. We have the HTML catalog to know how its look.
+
+Then, we place it in a React components catalog on browser. This way we can see if it's working well on the integration with the browser.
+
+Fully functional UI (toolbox: Browser-sync)
+Having finished the React components catalog, we integrate it with Redux and the browser, (it should look like the main layout that we have in the platform-ui project), we need to test how it's working in response with the server, make interactions to see if everything's fine before deploying it to web.
+
+For debugging on browsers, Browser-sync plugin is used, is a gulp task configured for two development environments, dev(3500), pre(4500)
