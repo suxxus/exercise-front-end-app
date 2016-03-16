@@ -226,4 +226,16 @@ Then, we place it in a React components catalog on browser. This way we can see 
 Fully functional UI (toolbox: Browser-sync)
 Having finished the React components catalog, we integrate it with Redux and the browser, (it should look like the main layout that we have in the platform-ui project), we need to test how it's working in response with the server, make interactions to see if everything's fine before deploying it to web.
 
-For debugging on browsers, Browser-sync plugin is used, is a gulp task configured for two development environments, dev(3500), pre(4500)
+For debugging on browsers, Browser-sync plugin is used, is a gulp task configured for two development environments, dev prot 3500, pre port 4500.
+
+## Dist:
+performs the necessary tasks to generate distribution version.
+
+## Travis-ci
+continuous integration, associated with github, whenever a push action is done, run the install, postinstall, check, and unit test tasks.
+
+## Heroku
+The repo is associated with Heroku application, after completing Travis-ci tasks, an automatic deploy is done. 
+If you have heroku installed, you can run locally heroku to verify proper operation before making a deploy.
+
+
