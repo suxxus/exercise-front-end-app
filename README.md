@@ -23,7 +23,7 @@ The `package.json` file comes with the following scripts
 * `devb` launch a dev server providing the app at build 
 * `test` run provided unit test
 
-## Overview:
+## Overview
 ### Motivation:
 Some time ago, I received an exercise, it's part of the recruitment process  to evaluate the skills as front-end developer, specially oriented at the services that the company offer.
 
@@ -133,7 +133,7 @@ used for implementation
 * Travis CI (continuous integration)
 * Heroku (Deploy)
 
-## Process:
+## Process
 
 #### Organizing the project:
 
@@ -228,7 +228,7 @@ Having finished the React components catalog, we integrate it with Redux and the
 
 For debugging on browsers, Browser-sync plugin is used, is a gulp task configured for two development environments, dev prot 3500, pre port 4500.
 
-## Dist:
+## Dist
 performs the necessary tasks to generate distribution version.
 
 ## Travis-ci
@@ -237,5 +237,17 @@ continuous integration, associated with github, whenever a push action is done, 
 ## Heroku
 The repo is associated with Heroku application, after completing Travis-ci tasks, an automatic deploy is done. 
 If you have heroku installed, you can run locally heroku to verify proper operation before making a deploy.
+
+Todo:
+* implement error response on client.
+* improve react components
+* improve unit test
+
+## Some links that have been useful to me
+* http://redux.js.org/docs/introduction/index.html
+* http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html
+* https://www.codementor.io/reactjs/tutorial/react-js-browserify-workflow-part-1
+
+
 
 
