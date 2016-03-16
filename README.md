@@ -179,5 +179,23 @@ I do not know if this is the best decision , but it helped me to focus first on 
 * **Platform-UI:** a catalog of all the subcomponents that the application needs.
 * **Platform-app:** the logic business with Redux, and the views with React.
 
+## Development:
 
+### Graphic design:
+As I said before, my knowledge of UX and graphic design is not enough, so I tried to make a simple design, using some components provided by Bourbon library. In this respect the application can be improved, both in terms of user experience and visual design. Both processes are of utmost importance when developing an app
 
+### Platform UI: HTML markup (https://platform-ui.herokuapp.com/)
+
+#### Catalog (components layout) 
+Each of the components that make up the application, built individually , each has associated the HTML code to be used in React component.
+
+Being a responsive design, its width is 100%. The main container determine its final width.
+
+Some of these components are associated with a very simple JavaScript function, which is used to see their isolated behavior.
+This script is not valid for the final React component.
+
+#### Metric Component:
+Composed with the sub-components from the catalog.
+
+#### Main layout:
+The app layout.
