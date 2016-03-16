@@ -3,6 +3,7 @@
 * Standard ES6 modules using Babel + browserify
 * React + jsx + Redux
 * gulp
+
 ## Demo:
 * application: https://platform-ui-app.herokuapp.com/
 * layout: https://platform-ui.herokuapp.com/
