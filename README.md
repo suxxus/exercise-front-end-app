@@ -228,9 +228,6 @@ Having finished the React components catalog, we integrate it with Redux and the
 
 For debugging on browsers, Browser-sync plugin is used, is a gulp task configured for two development environments, dev prot 3500, pre port 4500.
 
-## Dist
-performs the necessary tasks to generate distribution version.
-
 ## Travis-ci
 continuous integration, associated with github, whenever a push action is done, run the install, postinstall, check, and unit test tasks.
 
