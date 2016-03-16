@@ -186,7 +186,7 @@ As I said before, my knowledge of UX and graphic design is not enough, so I trie
 
 ### Platform UI: HTML markup (https://platform-ui.herokuapp.com/)
 
-* **Catalog (components layout):** 
+#### Catalog (components layout):
 Each of the components that make up the application, built individually , each has associated the HTML code to be used in React component.
 
 Being a responsive design, its width is 100%. The main container determine its final width.
@@ -194,8 +194,8 @@ Being a responsive design, its width is 100%. The main container determine its f
 Some of these components are associated with a very simple JavaScript function, which is used to see their isolated behavior.
 This script is not valid for the final React component.
 
-* **Metric Component:**
+#### Metric Component:
 Composed with the sub-components from the catalog.
 
-* **Main layout:**
+#### Main layout:
 The app layout.
