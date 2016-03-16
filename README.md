@@ -13,7 +13,7 @@
 git clone git@github.com:suxxus/exercise-front-end-app.git
 npm install 
 ```
-## Scripts
+## Scripts:
 The `package.json` file comes with the following scripts
 
 `npm run <name of script>`
@@ -38,6 +38,7 @@ All interactions defined in the document should be implemented:
  * Rename metric 
  * Delete metric 
  * Create new metric
+ 
 #### Prerequisites:
 * Browser support: IE10+, latest 2 versions of Chrome, Firefox, Safari, Opera 
 * You can use the JavaScript framework/libs of your choice. 
