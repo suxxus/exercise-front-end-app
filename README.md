@@ -213,7 +213,9 @@ Each component has its corresponding completely independent .sass file. Due to t
 Back-end development was out of the scope of this exercise, so all we need is a minimum Restful Service to access, create, modify or delete the information. The restful API only returns a static JSON to *GET* data, and *200 as status code* for the other actions(SAVE, DELETE, PUT). At the beginning of development phase, Freddie plugin was used as a static server, it's a good option for prototyping before the server is released.
 
 #### Client:
-To organize the application code on the client, Redux was used, I had never used this architecture before, but I found very interested in  trying it, it works very well with React that is used to build the UI; RamdaJS  was used to manipulate the state, RamdaJS never mutates input data.
+To organize the application code on the client I choose Redux. I found this architecture very interesting and it fits very well with React, used to build the UI components.
+
+RamdaJS  is used to manipulate the state, RamdaJS never mutates input data.
 
 Gulp is used to ease development workflow, and Browserify to generate the bundle file.
 
