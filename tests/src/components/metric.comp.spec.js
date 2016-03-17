@@ -9,7 +9,7 @@ import {
     ConstantsActions
 }
 from '../../mocks/mock';
-import { deepFreeze } from '../../mocks/utils';
+import deepFreeze  from 'deep-freeze';
 
 let before = test,
     after = test,

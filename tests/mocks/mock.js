@@ -1,5 +1,4 @@
 import R from 'ramda';
-import {deepFreeze} from './utils';
 
 export const metrics = {
     // server response
@@ -174,5 +173,3 @@ export const state = {
     }
 };
 
-
-export const freezedStateº = () => deepFreeze(R.clone(state));

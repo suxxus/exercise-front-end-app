@@ -1,8 +1,8 @@
 import R from 'ramda';
 import test from 'blue-tape';
 import mock from 'mock';
+import deepFreeze from 'deep-freeze';
 import * as Mocked from '../../mocks/mock';
-import { deepFreeze } from '../../mocks/utils';
 import { editMetrics } from 'scripts/reducers/edit-metrics';
 
 

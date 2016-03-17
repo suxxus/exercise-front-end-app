@@ -1,7 +1,7 @@
 import test from 'blue-tape';
 import R from 'ramda';
 import mock from 'mock';
-import { deepFreeze } from '../../mocks/utils';
+import deepFreeze from 'deep-freeze';
 import { ConstantsActions } from '../../mocks/mock';
 
 const action = mock('scripts/reducers/recive-metrics', {
