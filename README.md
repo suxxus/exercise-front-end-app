@@ -147,7 +147,7 @@ First need was a logotype for a fictitious brand *‘FUNmetrics’*. Then I drew
 
 *Happy with graphic design, next step was to organize the project.*
 
-The decision was to separate the **HTML markup** and **styles** from **logic**. So it would make sense to split them into two projects. One for the UI and another one to keep the business logic.
+The decision was to separate the **HTML markup** and **styles** from **logic**. So it would make sense to split them into **two projects**. One for the UI and another one to keep the business logic.
 
 Really I don’t know if this was the best decision, but it helped me to focus first on the behavior of each component separately before bringing them to Redux / React. Also, working on the application logic, if I found that something about the user interface was not working properly, it was necessary to switch from the application project to the UI project to modify it, and see if it was working well, isolated from React.
 
