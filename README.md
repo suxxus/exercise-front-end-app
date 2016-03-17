@@ -221,12 +221,13 @@ I started creating a Node app, the idea was to concentrate on core logic first a
 
 #### Redux modules:
 *(toolbox: jslint  tapejs)*
+
 It is really nice not having to use the browser during the development phase.
 Each action, reducer or store have it's own unit test, connected to fake data,  so we can see how the module works completely isolated from the other modules. Finished this phase, we can test how it's operating with the state data. At the moment, we don’t have a single React component.
 
 #### React components:
 *(toolbox: jslint tapejs Skin-deep)*
-toolbox: jslint tapejs Skin-deep
+
 Next task was to construct the components for the views with React, that would be hydrated with the data coming from the state object.
 
 Like Redux modules, each React component has its unit test. This way it's easy to test how it's working in an isolated manner before see it on the browser. We have the HTML catalog, as a reference, to know how each component looks.
@@ -235,6 +236,7 @@ Then, we place it in a React components catalog on the browser. This way we can 
 
 #### Fully functional UI:
 *(toolbox: Browser-sync)*
+
 Having finished the React components catalog, it's time to integrate it with Redux and the browser, (it should look like the main layout that we have in the platform-UI project), we need to test how it's working in response to the server, make interactions, see if everything's fine before deploying it to the web.
 
 For debugging on browsers, Browser-sync plugin is used, is a Gulp task configured for two development environments, dev(3500), pre(4500)
