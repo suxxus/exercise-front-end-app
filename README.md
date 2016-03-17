@@ -27,7 +27,7 @@ The `package.json` file comes with the following scripts
 ### Motivation:
 Some time ago, in a job interview, I received an exercise, it was part of the recruitment process to evaluate the skills as a front-end developer.
 
-I took the exercise it as an opportunity to experiment and gain knowledge about some technologies that do not use in everyday at work, with the advantage of starting to do things from the beginning to the end with total freedom.
+I took the exercise as an opportunity to experiment and gain knowledge about some technologies that do not use in every day at work, with the advantage of starting to do things from the beginning to the end with total freedom.
 
 #### Front end technical exercise description:
 The goal of this exercise is to turn the UI design we provide into a fully functional UI. It’s a small component in charge of creating/editing/deleting metrics corresponding to a
