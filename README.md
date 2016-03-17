@@ -252,6 +252,7 @@ If you have Heroku installed, you can run locally Heroku to verify proper operat
 - [ ] Implement error response on client.
 - [ ] Improve react components
 - [ ] Improve unit test
+- [ ] Improve english
 
 ## Some link that has been useful:
 * http://redux.js.org/docs/introduction/index.html
