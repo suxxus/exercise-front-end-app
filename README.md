@@ -48,7 +48,7 @@ All interactions defined in the document should be implemented:
 * It’s a webapp not a website. If you need to take semantic or architectural decisions, keep it in mind.
 Feel free to surprise us if you want, you put the limit.
 
-#### Functional design:
+#### UI-design:
 * Main view
 ```
 company logo
