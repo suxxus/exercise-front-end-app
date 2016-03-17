@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import test from 'blue-tape';
 import mock from 'mock';
 import * as Mocked from '../../mocks/mock';
