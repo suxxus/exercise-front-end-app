@@ -2,7 +2,7 @@
 ***personal exercise to study front-end development technologies***
 * Standard ES6 modules using Babel + browserify
 * React + jsx + Redux
-* gulp
+* Gulp
 
 ## Demo:
 * application: https://platform-ui-app.herokuapp.com/
@@ -25,13 +25,14 @@ The `package.json` file comes with the following scripts
 
 ## Overview
 ### Motivation:
-Some time ago, I received an exercise, it's part of the recruitment process  to evaluate the skills as front-end developer, specially oriented at the services that the company offer.
+Some time ago, in a job interview, I received an exercise, it was part of the recruitment process to evaluate the skills as a front-end developer.
 
-The job was not interested at that time. But I took it as an opportunity to gain knowledge about some technologies that do not use in everyday life , and to do things from the beginning to the end with total freedom.
+I took the exercise it as an opportunity to experiment and gain knowledge about some technologies that do not use in everyday at work, with the advantage of starting to do things from the beginning to the end with total freedom.
 
 #### Front end technical exercise description:
-> The goal of this exercise is to turn the UI design we provide into a fully functional UI. It’s a small component in charge of creating/editing/deleting metrics corresponding to a
+The goal of this exercise is to turn the UI design we provide into a fully functional UI. It’s a small component in charge of creating/editing/deleting metrics corresponding to a
 SaaS provider.
+
 All interactions defined in the document should be implemented:
  * Editing mode toggler
  * Rename metric
@@ -112,7 +113,7 @@ exit edit mode        user account
  new metric                                 Adds a new metric box to the list with
                                             editable name focused
 ```
-## Technology:
+## ToolBox:
 used for implementation
 * React
 * Redux (to organize the application code)
@@ -134,31 +135,30 @@ used for implementation
 * Heroku (Deploy)
 
 ## Process
-
 #### Organizing the project:
 
-*The work was divided in two phases, first the UI design, and second, the development using React/Redux library to manage data .*
+*The work was divided into two phases, first the UI design, and second the development using React/Redux library to manage data.*
 
-I needed a user interface that will represent the state data and where changes made by the user may be reflected.
+I needed a user interface that will represent the state data and where changes made ​​by the user may be reflected.
 
-I'm not a graphic designer, but as we know, a good graphic design is of vital importance for every app, so I did everything possible to create an attractive and usable interface for the user. This was part of the exercise, and a very pleasing task.
+I'm not a graphic designer, but as we know, a good graphic design is of vital importance for every app, so I did everything possible to create an attractive and usable interface for the user. This was part of the exercise and a  very pleasing task.
 
-First need was a logotype for a fictitious brand (‘FUNmetrics’). Then I drew several sketches on paper to get the component UI where the user would interact to modify data. From this point I defined, the footer for the app, and the other components.
+First need was a logotype for a fictitious brand (‘FUNmetrics’). Then I drew several sketches on paper to get the component UI where the user would interact to modify data. From this point, I defined the footer for the app and the other components.
 
 Happy with graphic design, next step was to organize the project.
 
-The decision was to separate the html markup and styles from logic. So it would make sense to split them in two projects. One for the UI and another one to keep the business logic.
+The decision was to separate the HTML markup and styles from logic. So it would make sense to split them into two projects. One for the UI and another one to keep the business logic.
 
-Really I do not know if this was the best decision, but it helped me to focus first on the behavior of each component separately before bringing them to Redux / React. Also, when I was working on the application logic , if I found that something of the user interface was not working properly, it was necessary to change from the application project to the UI project  to modify it, and see if it was working well, isolated from React.
+Really I don’t know if this was the best decision, but it helped me to focus first on the behavior of each component separately before bringing them to Redux / React. Also, working on the application logic, if I found that something about the user interface was not working properly, it was necessary to switch from the application project to the UI project to modify it, and see if it was working well, isolated from React.
 
-#### Two projects for a single result:
-* **Platform-UI:** a catalog of all the subcomponents that the application needs.
-* **Platform-app:** the logic business with Redux, and the views with React.
+
+* *Platform-UI*: a catalog of all the subcomponents that the application needs.
+* *Platform-app*: the logic business with Redux, and the views with React.
 
 ## Development:
 
 ### Data:
-*A shape of the data that the application have to represent.*
+*A shape of the data that the application has to represent.*
 ```
 {
     "user": "jhondoe@mail.com",
@@ -183,69 +183,75 @@ Really I do not know if this was the best decision, but it helped me to focus fi
 ```
 
 ### Graphic design:
-As I said before, my knowledge of UX and graphic design is not enough, so I tried to make a simple design, using some components provided by Bourbon library. In this respect the application can be improved, both in terms of user experience and visual design. Both processes are of utmost importance when developing an app
+As I said before, my knowledge of UX and graphic design is not enough, so I tried to make a simple design, using some components provided by Bourbon library. In this respect the application can be improved, both in terms of user experience and visual design. Both processes are of utmost importance when developing an app.
 
-### Platform UI: HTML markup (https://platform-ui.herokuapp.com/)
+### Platform UI HTML markup:
+(https://platform-ui.herokuapp.com/)
 
 #### Catalog (components layout):
-Each of the components that make up the application, built individually , each has associated the HTML code to be used in React component.
+Each of the components that make up the application, built individually, each has associated the HTML code to be used in React component.
 
-Being a responsive design, its width is 100%. The main container determine its final width.
+Being a responsive design, its width is 100%. The main container determines its final width.
 
 Some of these components are associated with a very simple JavaScript function, which is used to see their isolated behavior.
-This script is not valid for the final React component.
+**This script is not valid for the final React component.**
 
 #### Metric Component:
-Composed with the sub-components from the catalog.
+Composed of the sub-components from the catalog.
+
 
 #### Main layout:
 The app layout.
 
 #### Style:
-Each component has its corresponding completely independent .sass file. Due to the dependence of Bourbon Css, the components extend to fit as needed.
+Each component has its corresponding completely independent .sass file. Due to the dependence of Bourbon CSS, the components extend to fit as needed.
 
-### Platform-ui-app (https://platform-ui-app.herokuapp.com/ )
+### Platform-ui-app
+(https://platform-ui-app.herokuapp.com/)
 
 #### Server
-Back-end development was out of the scope of this exercise, so all we need is a minimum Restful Service to access, create, modify or delete the information. The restful api only returns a static json to GET data, and 200 as status code for the other actions(SAVE, DELETE, PUT). On the first phase of the project freddie plugin was used as a static server, it's a good option for prototyping before the server is released.
+Back-end development was out of the scope of this exercise, so all we need is a minimum Restful Service to access, create, modify or delete the information. The restful API only returns a static JSON to *GET* data, and *200 as status code* for the other actions(SAVE, DELETE, PUT). On the first phase of the project, a freddie plugin was used as a static server, it's a good option for prototyping before the server is released.
 
 #### Client:
-To organize the application code on client Redux was used, I had never used this architecture before, but I found very interested to  try it, it works very well with React that is used to build the UI; Ramda  was used to manipulate the state, Ramdajs never mutates input data. Gulp is used to ease development workflow, and Browserify is used to generate bundle file.
+To organize the application code on the client, Redux was used, I had never used this architecture before, but I found very interested in  trying it, it works very well with React that is used to build the UI; RamdaJS  was used to manipulate the state, RamdaJS never mutates input data.
 
-I started creating a Node app first, the idea was to concentrate on core logic first and then thinking about UI, and how fits on browser.
+Gulp is used to ease development workflow, and Browserify is used to generate bundle file.
 
-#### Redux modules (toolbox: jslint  tapejs):
-It is really nice, not having to use the browser during the development phase.
-Each action, reducer or store have it's own unit test, connected to fake data,  so we can see how the module works completely isolated from the other modules. Finished this phase, we can test how it's operating with the state data. At the moment we don’t have a single React component.
+I started creating a Node app, the idea was to concentrate on core logic first and then thinking about UI, and how fits on the browser.
 
-#### React components (jslint tapejs Skin-deep):
-Next task was to construct the view components with React that would be hydrated with the data coming from the state object.
-Like Redux modules, each React component has its unit test. This way it's easy to see how it's working in an isolated manner before see it on browser. We have the HTML catalog to know how its look.
+#### Redux modules:
+*(toolbox: jslint  tapejs)*
+It is really nice not having to use the browser during the development phase.
+Each action, reducer or store have it's own unit test, connected to fake data,  so we can see how the module works completely isolated from the other modules. Finished this phase, we can test how it's operating with the state data. At the moment, we don’t have a single React component.
 
-Then, we place it in a React components catalog on browser. This way we can see if it's working well on the integration with the browser.
+#### React components:
+*(toolbox: jslint tapejs Skin-deep)*
+toolbox: jslint tapejs Skin-deep
+Next task was to construct the components for the views with React, that would be hydrated with the data coming from the state object.
 
-Fully functional UI (toolbox: Browser-sync)
-Having finished the React components catalog, we integrate it with Redux and the browser, (it should look like the main layout that we have in the platform-ui project), we need to test how it's working in response with the server, make interactions to see if everything's fine before deploying it to web.
+Like Redux modules, each React component has its unit test. This way it's easy to test how it's working in an isolated manner before see it on the browser. We have the HTML catalog, as a reference, to know how each component looks.
 
-For debugging on browsers, Browser-sync plugin is used, is a gulp task configured for two development environments, dev prot 3500, pre port 4500.
+Then, we place it in a React components catalog on the browser. This way we can see if it's working well on the integration with the browser.
+
+#### Fully functional UI:
+*(toolbox: Browser-sync)*
+Having finished the React components catalog, it's time to integrate it with Redux and the browser, (it should look like the main layout that we have in the platform-UI project), we need to test how it's working in response to the server, make interactions, see if everything's fine before deploying it to the web.
+
+For debugging on browsers, Browser-sync plugin is used, is a Gulp task configured for two development environments, dev(3500), pre(4500)
 
 ## Travis-ci
-continuous integration, associated with github, whenever a push action is done, run the install, postinstall, check, and unit test tasks.
+Continuous integration, associated with Github, whenever a push action is done, run the install, post install, check, and unit test tasks.
 
 ## Heroku
 The repo is associated with Heroku application, after completing Travis-ci tasks, an automatic deploy is done.
-If you have heroku installed, you can run locally heroku to verify proper operation before making a deploy.
+If you have Heroku installed, you can run locally Heroku to verify proper operation before making a deploy.
 
 ## Todo:
-- [ ] implement error response on client.
-- [ ] improve react components
-- [ ] improve unit test
+- [ ] Implement error response on client.
+- [ ] Improve react components
+- [ ] Improve unit test
 
-## Some links that have been useful to me
+## Some link that has been useful:
 * http://redux.js.org/docs/introduction/index.html
 * http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html
 * https://www.codementor.io/reactjs/tutorial/react-js-browserify-workflow-part-1
-
-
-
-
