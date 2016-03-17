@@ -2,7 +2,7 @@
  import React from 'react';
  import sd from 'skin-deep';
  import main from 'scripts/components/metric-card.comp';
- import { deepFreeze } from '../../mocks/utils';
+ import deepFreeze from 'deep-freeze';
 
  let before = test,
      after = test,

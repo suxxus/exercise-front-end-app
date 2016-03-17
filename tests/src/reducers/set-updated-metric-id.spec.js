@@ -1,7 +1,7 @@
 import test from 'blue-tape';
 import R from 'ramda';
 import { setUpdatedMetricId } from 'scripts/reducers/set-updated-metric-id';
-import { deepFreeze } from '../../mocks/utils';
+import deepFreeze from 'deep-freeze';
 
 const before = test,
     after = test;

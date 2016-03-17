@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { equals, ifElse, omit, values, assoc, not, and, map } from 'ramda';
+import { equals, ifElse, omit, values, assoc, not, and, map, prop } from 'ramda';
 import MetricLabel from './label-name.comp';
 import MetricName from './metric-name.comp';
 import DeleteMetric from './delete-metric.comp';
@@ -40,10 +40,17 @@ default React.createClass({
         },
 
         componentWillReceiveProps(next){
+
+          const { chartIndex, editable, isFetching, updatedMetricId } = next,
+              { name, chartType } = prop(chartIndex, next.entities.charts);
+
           this.setState({
-            editable: next.editable,
-            isFetching: equals(String(this.props.chartIndex), next.isFetching),
-            updatedMetricId: equals(this.props.chartIndex, next.updatedMetricId)
+            name: name,
+            chartType: chartType,
+            editable: editable,
+            isFetching: equals(String(chartIndex), isFetching),
+            updatedMetricId: equals(chartIndex, updatedMetricId),
+            showWarning: false
           });
         },
 
@@ -53,11 +60,11 @@ default React.createClass({
         },
 
         utilityStateChart() {
-            return this.props.entities.charts[this.props.chartIndex];
+            return prop(this.props.chartIndex, this.props.entities.charts);
         },
 
         utilityStateChartTypes() {
-            return this.props.entities.chartTypes;
+            return prop('chartTypes', this.props.entities);
         },
 
         utilityStateChartMetadata() {
@@ -85,9 +92,10 @@ default React.createClass({
                 },
 
                 deleteMetricHandler = () => {
-                    const metricId = this.utilityStateChart().id;
+                    const metricId = this.utilityStateChart().id,
+                          { userId } = this.props;
                     this.props.deleteMetricData({
-                        userId: this.props.userId,
+                        userId,
                         metricId
                     });
                 },

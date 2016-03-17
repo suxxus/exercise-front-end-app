@@ -39,7 +39,7 @@ export const fetchMetrics = id => dispatch => {
     return fetch(`/api/${id}/metrics`, {
             method: 'GET',
         })
-        .then(response => response.json ? response.json() : response)
+        .then(response => response.json())
         .then(response => normalizr(response))
         .then(response => {
             dispatch(reciveMetrics(response));

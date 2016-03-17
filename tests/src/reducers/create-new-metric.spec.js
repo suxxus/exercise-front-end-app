@@ -1,7 +1,7 @@
 import R from 'ramda';
 import test from 'blue-tape';
 import mock from 'mock';
-import { deepFreeze } from '../../mocks/utils';
+import deepFreeze from 'deep-freeze';
 
 const before = test,
     after = test;

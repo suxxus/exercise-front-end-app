@@ -19,7 +19,7 @@
         "name": "Susy",
         "metadata": {
             "id": 1,
-            "limit": "limit riched: 500",
+            "limit": "limit reached: 500",
             "updates": "125 updates",
             "message": "monthly resolution"
         }
@@ -29,7 +29,7 @@
         "name": "Marina",
         "metadata": {
             "id": 2,
-            "limit": "limit riched: 300",
+            "limit": "limit reached: 300",
             "updates": "98 updates",
             "message": "monthly resolution"
         }
@@ -39,7 +39,7 @@
         "name": "Alice",
         "metadata": {
             "id": 3,
-            "limit": "limit riched: 200",
+            "limit": "limit reached: 200",
             "updates": "95 updates",
             "message": "monthly resolution"
         }
@@ -49,7 +49,7 @@
         "name": "Kim",
         "metadata": {
             "id": 4,
-            "limit": "limit riched: 100",
+            "limit": "limit reached: 100",
             "updates": "152 updates",
             "message": "monthly resolution"
         }
@@ -59,7 +59,7 @@
         "name": "Marie",
         "metadata": {
             "id": 5,
-            "limit": "limit riched: 200",
+            "limit": "limit reached: 200",
             "updates": "452 updates",
             "message": "monthly resolution"
         }
@@ -69,7 +69,7 @@
         "name": "Marie",
         "metadata": {
             "id": 6,
-            "limit": "limit riched: 98",
+            "limit": "limit reached: 98",
             "updates": "120 updates",
             "message": "monthly resolution"
         }
