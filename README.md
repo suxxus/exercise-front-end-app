@@ -189,7 +189,7 @@ As I said before, my knowledge of UX and graphic design is not enough, so I trie
 (https://platform-ui.herokuapp.com/)
 
 #### Catalog (components layout):
-Each of the components that make up the application, built individually, each has associated the HTML code to be used in React component.
+Each of the components that make up the application, built individually, each one has associated the HTML code to be used in React component.
 
 Being a responsive design, its width is 100%. The main container determines its final width.
 
@@ -215,7 +215,7 @@ Back-end development was out of the scope of this exercise, so all we need is a 
 #### Client:
 To organize the application code on the client, Redux was used, I had never used this architecture before, but I found very interested in  trying it, it works very well with React that is used to build the UI; RamdaJS  was used to manipulate the state, RamdaJS never mutates input data.
 
-Gulp is used to ease development workflow, and Browserify is used to generate bundle file.
+Gulp is used to ease development workflow, and Browserify to generate the bundle file.
 
 I started creating a Node app, the idea was to concentrate on core logic first and then thinking about UI, and how fits on the browser.
 
@@ -237,7 +237,7 @@ Then, we place it in a React components catalog on the browser. This way we can 
 #### Fully functional UI:
 *(toolbox: Browser-sync)*
 
-Having finished the React components catalog, it's time to integrate it with Redux and the browser, (it should look like the main layout that we have in the platform-UI project), we need to test how it's working in response to the server, make interactions, see if everything's fine before deploying it to the web.
+Having finished the React components catalog, it's time to integrate it with Redux and the browser, *it should look like the main layout that we have in the platform-UI project*, we need to test how it's working in response to the server, make interactions, see if everything's fine before deploying it to the web.
 
 For debugging on browsers, Browser-sync plugin is used, is a Gulp task configured for two development environments, dev(3500), pre(4500)
 
