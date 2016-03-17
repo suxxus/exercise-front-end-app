@@ -209,7 +209,7 @@ Each component has its corresponding completely independent .sass file. Due to t
 ### Platform-ui-app
 (https://platform-ui-app.herokuapp.com/)
 
-#### Server
+#### Server:
 Back-end development was out of the scope of this exercise, so all we need is a minimum Restful Service to access, create, modify or delete the information. The restful API only returns a static JSON to *GET* data, and *200 as status code* for the other actions(SAVE, DELETE, PUT). On the first phase of the project, a freddie plugin was used as a static server, it's a good option for prototyping before the server is released.
 
 #### Client:
@@ -241,10 +241,10 @@ Having finished the React components catalog, it's time to integrate it with Red
 
 For debugging on browsers, Browser-sync plugin is used, is a Gulp task configured for two development environments, dev(3500), pre(4500)
 
-## Travis-ci
+## Travis-ci:
 Continuous integration, associated with Github, whenever a push action is done, run the install, post install, check, and unit test tasks.
 
-## Heroku
+## Heroku:
 The repo is associated with Heroku application, after completing Travis-ci tasks, an automatic deploy is done.
 If you have Heroku installed, you can run locally Heroku to verify proper operation before making a deploy.
 
