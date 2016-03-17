@@ -250,7 +250,6 @@ If you have Heroku installed, you can run locally Heroku to verify proper operat
 
 ## Todo:
 - [ ] Implement error response on client.
-- [ ] Improve react components
 - [ ] Improve unit test
 - [ ] Improve english
 
@@ -258,4 +257,3 @@ If you have Heroku installed, you can run locally Heroku to verify proper operat
 * http://redux.js.org/docs/introduction/index.html
 * http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html
 * https://www.codementor.io/reactjs/tutorial/react-js-browserify-workflow-part-1
->>>>>>> develop
