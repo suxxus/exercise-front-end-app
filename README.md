@@ -143,11 +143,11 @@ I needed a user interface that will represent the state data and where changes m
 
 I'm not a graphic designer, but as we know, a good graphic design is of vital importance for every app, so I did everything possible to create an attractive and usable interface for the user. This was part of the exercise and a  very pleasing task.
 
-First need was a logotype for a fictitious brand (‘FUNmetrics’). Then I drew several sketches on paper to get the component UI where the user would interact to modify data. From this point, I defined the footer for the app and the other components.
+First need was a logotype for a fictitious brand *‘FUNmetrics’*. Then I drew several sketches on paper to get the component UI where the user would interact to modify data. From this point, I defined the footer for the app and the other components.
 
-Happy with graphic design, next step was to organize the project.
+*Happy with graphic design, next step was to organize the project.*
 
-The decision was to separate the HTML markup and styles from logic. So it would make sense to split them into two projects. One for the UI and another one to keep the business logic.
+The decision was to separate the **HTML markup** and **styles** from **logic**. So it would make sense to split them into two projects. One for the UI and another one to keep the business logic.
 
 Really I don’t know if this was the best decision, but it helped me to focus first on the behavior of each component separately before bringing them to Redux / React. Also, working on the application logic, if I found that something about the user interface was not working properly, it was necessary to switch from the application project to the UI project to modify it, and see if it was working well, isolated from React.
 
