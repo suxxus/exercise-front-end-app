@@ -186,8 +186,6 @@ The separation of the HTML markup and styles in one project from the logic in an
 As I said before, my knowledge of UX and graphic design is not enough, so I tried to make a **simple design**, using some components provided by Bourbon library. In this respect the application can be improved, both in terms of user experience and visual design. Both processes are of utmost importance when developing an app.
 
 ### Platform UI:
-[HTML markup](https://platform-ui.herokuapp.com/)
-
 #### Catalog:
 [components layout](http://platform-ui.herokuapp.com/components-layout.html)
 
@@ -204,7 +202,7 @@ Some of these components are associated with a very simple JavaScript function, 
 Composed of the sub-components from the catalog.
 
 #### Main layout:
-[layout]((http://platform-ui.herokuapp.com/main-layout.html)
+[layout](http://platform-ui.herokuapp.com/main-layout.html)
 
 The app layout.
 
