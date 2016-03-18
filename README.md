@@ -5,8 +5,8 @@
 * Gulp
 
 ## Demo:
-* application: https://platform-ui-app.herokuapp.com/
-* layout: https://platform-ui.herokuapp.com/
+* [application](https://platform-ui-app.herokuapp.com/)
+* [layout](https://platform-ui.herokuapp.com/)
 
 ## Clone the repo & install:
 ```
@@ -185,10 +185,12 @@ The separation of the HTML markup and styles in one project from the logic in an
 ### Graphic design:
 As I said before, my knowledge of UX and graphic design is not enough, so I tried to make a **simple design**, using some components provided by Bourbon library. In this respect the application can be improved, both in terms of user experience and visual design. Both processes are of utmost importance when developing an app.
 
-### Platform UI HTML markup:
-(https://platform-ui.herokuapp.com/)
+### Platform UI:
+[HTML markup](https://platform-ui.herokuapp.com/)
 
-#### Catalog (components layout):
+#### Catalog:
+[components layout](http://platform-ui.herokuapp.com/components-layout.html)
+
 Each of the components that make up the application was built individually, each one has associated the HTML code needed to be used in React component.
 
 Being a responsive design, its width is 100%. The main container determines the final width of the component.
@@ -197,16 +199,20 @@ Some of these components are associated with a very simple JavaScript function, 
 **This script is not valid for the final React component.**
 
 #### Metric Component:
+[component](http://platform-ui.herokuapp.com/metrics-component.html)
+
 Composed of the sub-components from the catalog.
 
 #### Main layout:
+[layout]((http://platform-ui.herokuapp.com/main-layout.html)
+
 The app layout.
 
 #### Style:
 Each component has its corresponding completely independent .sass file. Due to the dependence of Bourbon CSS, the components extend to fit as needed.
 
 ### Platform-ui-app
-(https://platform-ui-app.herokuapp.com/)
+[app](https://platform-ui-app.herokuapp.com/)
 
 #### Server:
 Back-end development was out of the scope of this exercise, so all we need is a minimum Restful Service to access, create, modify or delete the information. The restful API only returns a static JSON to *GET* data, and *200 as status code* for the other actions(SAVE, DELETE, PUT). At the beginning of development phase, Freddie plugin was used as a static server, it's a good option for prototyping before the server is released.
