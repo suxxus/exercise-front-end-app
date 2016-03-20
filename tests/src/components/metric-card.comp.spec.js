@@ -16,7 +16,6 @@
  const setup = (isFetching = false, updatedMetricId = false) => {
 
      props = {
-         comfirmDelete: () => false,
          id: 1,
          isFetching,
          updatedMetricId,
@@ -129,20 +128,6 @@
      t.end()
  });
 
- test('confirmListener', t => {
-
-     let actual, expect;
-
-     actual = instance.confirmListener({
-         target: {
-             value: 'yes'
-         }
-     });
-     expect = true;
-     t.equal(actual, expect, 'should be true');
-
-     t.end();
- });
 
  after('end', t => {
      t.pass('//------------------------------------------------//');

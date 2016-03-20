@@ -6,19 +6,11 @@ default React.createClass({
 
 
         propTypes: {
-            comfirmDelete: React.PropTypes.func.isRequired,
             id: React.PropTypes.number.isRequired,
             isFetching: React.PropTypes.bool.isRequired,
             updatedMetricId: React.PropTypes.bool.isRequired,
-//            showWarning: React.PropTypes.bool.isRequired,
             chartSelected: React.PropTypes.string.isRequired,
             'class-names': React.PropTypes.array.isRequired
-        },
-
-        confirmListener(e) {
-            const deleteMetric = equals('yes');
-            this.props.comfirmDelete(deleteMetric(e.target.value));
-            return deleteMetric(e.target.value);
         },
 
         renderSuccessMsg() {
