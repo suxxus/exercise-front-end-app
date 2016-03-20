@@ -1,5 +1,5 @@
 import React from 'react';
-import {equals, not, addIndex, map, whereEq} from 'ramda';
+import {not, addIndex, map, whereEq} from 'ramda';
 import classnames from 'classnames';
 export
 default React.createClass({
