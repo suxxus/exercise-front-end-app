@@ -13,9 +13,7 @@
      instance,
      $ = React.createElement;
 
- const setup = (showWarning = false,
-     isFetching = false,
-     updatedMetricId = false) => {
+ const setup = (isFetching = false, updatedMetricId = false) => {
 
      props = {
          comfirmDelete: () => false,
@@ -23,7 +21,6 @@
          isFetching,
          updatedMetricId,
          chartSelected: 'pie',
-         showWarning,
          'class-names': ['pie', 'line', 'area']
      };
  };
@@ -70,7 +67,7 @@
      expect = 'msgs hide';
      t.equal(actual, expect, 'by default should be msg hide');
 
-     setup(false, false, true);
+     setup(false, true);
      doComp();
      tree = sd.shallowRender(instance.renderSuccessMsg())
 
@@ -85,7 +82,7 @@
 
      let tree, actual, expect;
 
-     setup(false, true, false);
+     setup(true, false);
      doComp();
 
      tree = sd.shallowRender(instance.renderAjaxLoader())
@@ -97,32 +94,6 @@
      actual = tree.getRenderOutput().props.className;
      expect = 'msgs';
      t.equal(actual, expect, 'by default should be msg hide');
-
-     t.end();
- });
-
-
- test('should render warning - confirm message', t => {
-
-     let tree, actual, expect;
-
-     tree = sd.shallowRender(instance.renderWarningConfirm())
-
-     actual = tree.getRenderOutput().type;
-     expect = 'div';
-     t.equal(actual, expect, 'should be div');
-
-     actual = tree.getRenderOutput().props.className;
-     expect = 'msgs hide';
-     t.equal(actual, expect, 'by default should be msg hide');
-
-     setup(true, false, false);
-     doComp();
-     tree = sd.shallowRender(instance.renderWarningConfirm())
-
-     actual = tree.getRenderOutput().props.className;
-     expect = 'msgs';
-     t.equal(actual, expect, 'should be msgs');
 
      t.end();
  });
@@ -153,7 +124,7 @@
 
      actual = tree.getRenderOutput().props.className;
      expect = 'img-cont show-pie hide';
-     t.equal(actual, expect, 'showWarning is true, className should be img-cont show-pie hide');
+     t.equal(actual, expect, 'className should be img-cont show-pie hide');
 
      t.end()
  });

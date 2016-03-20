@@ -10,7 +10,7 @@ default React.createClass({
             id: React.PropTypes.number.isRequired,
             isFetching: React.PropTypes.bool.isRequired,
             updatedMetricId: React.PropTypes.bool.isRequired,
-            showWarning: React.PropTypes.bool.isRequired,
+//            showWarning: React.PropTypes.bool.isRequired,
             chartSelected: React.PropTypes.string.isRequired,
             'class-names': React.PropTypes.array.isRequired
         },
@@ -43,33 +43,9 @@ default React.createClass({
             );
         },
 
-        renderWarningConfirm() {
-
-            const hideWarningMessage = value => not(value);
-
-            return (<div className={'msgs' + classnames({' hide': hideWarningMessage(this.props.showWarning)})}>
-                  <div className="card-message">
-                    <div className="warning">
-                      <h3>You are about to delete. Do you want to proceed?</h3><i className="fa fa-exclamation-triangle fa-3x" />
-                      <div className="confirm">
-                        <div className="wrapper">
-                          <div className="left">
-                            <button value="yes" type="button" onClick={this.confirmListener}>yes</button>
-                          </div>
-                          <div className="right">
-                            <button value="no" type="button" onClick={this.confirmListener}>no</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>);
-        },
-
         renderCharts() {
 
                 const pred = whereEq({
-                  showWarning: false,
                   isFetching: false,
                   updatedMetricId: false
                 }),
@@ -88,7 +64,6 @@ default React.createClass({
                              <div className="card-image">
                                 {this.renderAjaxLoader()}
                                 {this.renderSuccessMsg()}
-                                {this.renderWarningConfirm()}
                                 {this.renderCharts()}
                              </div>
                             </div>
