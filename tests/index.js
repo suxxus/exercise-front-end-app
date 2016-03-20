@@ -32,6 +32,7 @@
    import './src/components/actions-btns.comp.spec';
    import './src/components/metric-card.comp.spec';
    import './src/components/select-chart-type.comp.spec';
+   import './src/components/metric-modal.comp.spec';
    import './src/components/metric-info-metadata.comp.spec';
    import './src/components/metric.comp.spec';
    import './src/components/main.section.spec';
