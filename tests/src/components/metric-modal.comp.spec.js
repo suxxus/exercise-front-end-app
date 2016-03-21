@@ -90,8 +90,8 @@ test('should render correctly', t => {
     setup();
 
     actual = tree.subTree('.modal-bkg').props.className;
-    expect = 'modal-bkg opacity-show';
-    t.equal(actual, expect, 'should be modal-bkg opacity-show');
+    expect = 'modal-bkg display-modal';
+    t.equal(actual, expect, 'should be modal-bkg display-modal');
 
     actual = tree.subTree('.msgs').props.className;
     expect = 'msgs modal-dialog modal-dialog-transition modal-dialog-transform';

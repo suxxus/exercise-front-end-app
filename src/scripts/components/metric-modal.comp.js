@@ -31,7 +31,7 @@ default React.createClass({
     render() {
         return (
           <div className="modal">
-            <div className={classnames({'modal-bkg': true, 'opacity-show': this.props.show})} />
+            <div className={classnames({'modal-bkg': true, 'display-modal': this.props.show})} />
             <div className={classnames({'msgs': true, 'modal-dialog': true, 'modal-dialog-transition': this.props.show, 'modal-dialog-transform': this.props.show})} >
             { this.renderMessage() }
             </div>
