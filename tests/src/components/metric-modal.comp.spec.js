@@ -25,7 +25,7 @@ before('desc:', t => {
     t.pass('componets: metric-modal');
 
     props = {
-        comfirmDelete: () => false,
+        confirmDelete: () => false,
         show: false
     };
 
@@ -48,16 +48,16 @@ test('renderMessage', t => {
     t.equal(actual, expect, 'yes btn, should bind a function');
 
     actual = renderMsg.subTree('.left').props.children.props.value;
-    expect = true;
-    t.equal(actual, expect, 'yes btn value, should be true');
+    expect = "yes";
+    t.equal(actual, expect, 'yes btn value, should be "yes"');
 
     actual = typeof renderMsg.subTree('.right').props.children.props.onClick;
     expect = 'function';
     t.equal(actual, expect, 'no btn, should bind a function');
 
     actual = renderMsg.subTree('.right').props.children.props.value;
-    expect = false;
-    t.equal(actual, expect, 'no btn value, should be false');
+    expect = "no";
+    t.equal(actual, expect, 'no btn value, should be "no"');
 
     t.end();
 });
@@ -85,13 +85,13 @@ test('should render correctly', t => {
 
     props = {
         show: true,
-        comfirmDelete: () => false
+        confirmDelete: () => false
     };
     setup();
 
-    actual = tree.subTree('.modal-bkg').props.className;
-    expect = 'modal-bkg display-modal';
-    t.equal(actual, expect, 'should be modal-bkg display-modal');
+    actual = vdom.props.className;
+    expect = 'modal display-modal';
+    t.equal(actual, expect, 'should be modal display-modal');
 
     actual = tree.subTree('.msgs').props.className;
     expect = 'msgs modal-dialog modal-dialog-transition modal-dialog-transform';

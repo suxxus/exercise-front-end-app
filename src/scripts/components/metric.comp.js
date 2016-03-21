@@ -7,6 +7,7 @@ import DeleteMetric from './delete-metric.comp';
 import SelectChart from './select-chart-type.comp';
 import Actionsbtns from './actions-btns.comp';
 import MetricCard from './metric-card.comp';
+import MetricModal from './metric-modal.comp';
 import Info from './metric-info-metadata.comp';
 
 import { SAVE_METRIC, UNDO_CHANGES} from '../constants/actions';
@@ -83,7 +84,7 @@ default React.createClass({
             });
         },
 
-        deleteMetric(value) {
+        deleteMetric(e) {
 
             const setShowWarning = () => {
                     this.setState({
@@ -100,7 +101,7 @@ default React.createClass({
                     });
                 },
 
-                confirmDeleteMetric = equals(true),
+                confirmDeleteMetric = equals('yes'),
 
                 action = ifElse(
                     confirmDeleteMetric,
@@ -108,8 +109,9 @@ default React.createClass({
                     setShowWarning
                 );
 
-            action(value);
+            action(e.target.value);
         },
+
 
         undoChanges() {
             this.setState({
@@ -246,13 +248,24 @@ default React.createClass({
                     </div>);
         },
 
+        renderModal() {
+
+          const modal = React.createElement(MetricModal, {
+            confirmDelete: this.deleteMetric,
+            show: this.state.showWarning
+
+          });
+          return modal;
+        },
+
         render() {
             return (
                 <div className={'metric-component' + classnames({' edit-mode': this.state.editable}) }>
-                  {this.renderHeader()}
-                  {this.renderChartsActionsBtns()}
-                  {this.renderMetricCard()}
-                  {this.renderMetadata()}
+                    {this.renderHeader()}
+                    {this.renderChartsActionsBtns()}
+                    {this.renderMetricCard()}
+                    {this.renderMetadata()}
+                    {this.renderModal()}
                 </div>);
         }
 });

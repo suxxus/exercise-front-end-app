@@ -5,7 +5,7 @@ export
 default React.createClass({
 
     propTypes: {
-            comfirmDelete: React.PropTypes.func.isRequired,
+            confirmDelete: React.PropTypes.func.isRequired,
             show: React.PropTypes.bool.isRequired
           },
 
@@ -16,11 +16,11 @@ default React.createClass({
           <h3>You are about to delete. Do you want to proceed?</h3><i className="fa fa-exclamation-triangle fa-3x" />
           <div className="confirm">
             <div className="wrapper">
-              <div className="left" id="yes">
-                <button type="button" onClick={this.props.comfirmDelete} value={true}>yes</button>
+              <div className="left">
+                <button type="button" onClick={this.props.confirmDelete} value="yes">yes</button>
               </div>
-              <div className="right" id="no">
-                <button type="button" onClick={this.props.comfirmDelete} value={false}>no</button>
+              <div className="right">
+                <button type="button" onClick={this.props.confirmDelete} value="no">no</button>
               </div>
             </div>
           </div>
@@ -30,8 +30,8 @@ default React.createClass({
 
     render() {
         return (
-          <div className="modal">
-            <div className={classnames({'modal-bkg': true, 'display-modal': this.props.show})} />
+          <div className={classnames({'modal': true, 'display-modal': this.props.show})}>
+            <div className="modal-bkg" />
             <div className={classnames({'msgs': true, 'modal-dialog': true, 'modal-dialog-transition': this.props.show, 'modal-dialog-transform': this.props.show})} >
             { this.renderMessage() }
             </div>

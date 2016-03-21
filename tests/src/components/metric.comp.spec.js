@@ -153,6 +153,20 @@ test('should render correctly', t => {
     t.end();
 });
 
+
+test('should render metric modal', t => {
+
+  let renderModal, actual, expect;
+  renderModal = sd.shallowRender(instance.renderModal);
+
+  actual = renderModal.getRenderOutput().type;
+  expect = 'div';
+  t.equal(actual, expect, 'should be div');
+
+  t.end();
+});
+
+
 test('should render metric header', t => {
 
     setup(R.clone(state), 1);
