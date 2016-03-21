@@ -245,6 +245,9 @@ Having finished the React components catalog, next step was to integrate it with
 
 For debugging on browsers, Browser-sync plugin is used, is a Gulp task configured for two development environments, dev(3500), pre(4500)
 
+## Travis-ci:
+Continuous integration, associated with Github, whenever a push action is done, run the install, post install, check, and unit test tasks.
+
 ## Heroku:
 The repo is associated with Heroku application, after completing Travis-ci tasks, an automatic deploy is done.
 If you have Heroku installed, you can run locally Heroku to verify proper operation before making a deploy.
