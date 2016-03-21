@@ -40,7 +40,7 @@ default React.createClass({
 
         renderChartsList() {
             return (<ul className={'submenu' + classnames({' show': this.state['show-items'] }) }>
-               {map(item => this.renderListItems(item), this.props.chartsType)};
+               {map(item => this.renderListItems(item), this.props.chartsType)}
               </ul>);
         },
 
