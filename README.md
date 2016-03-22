@@ -256,7 +256,7 @@ If you have Heroku installed, you can run locally Heroku to verify proper operat
 - [ ] Implement error response on client.
 - [ ] Improve unit test on React components.
 
-## Some link that has been useful:
+## Some links that has been useful:
 * http://redux.js.org/docs/introduction/index.html
 * http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html
 * https://www.codementor.io/reactjs/tutorial/react-js-browserify-workflow-part-1
