@@ -116,7 +116,7 @@ exit edit mode        user account
 ## ToolBox:
 used for implementation
 * React
-* Redux (to organize the application code)
+* Redux (state container)
 * Normalizr  (Normalizes deeply nested JSON)
 * Gulp
 * Browserify (bundling)
