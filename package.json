@@ -14,7 +14,7 @@
     "freddie": "freddie",
     "test": "NODE_PATH=src babel-node tests/index.js | tap",
     "check": "npm outdated --depth=0",
-    "postinstall": "npm run dist"
+    "prepublish": "npm run dist"
   },
   "author": "DIEGO <diegoriez@gmail.com>",
   "license": "ISC",
