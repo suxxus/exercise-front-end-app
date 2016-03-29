@@ -4,7 +4,8 @@
 * React + jsx + Redux
 * Gulp
 
-[![build status](https://travis-ci.org/suxxus/exercise-front-end-app.svg?style=flat-square)](https://travis-ci.org/suxxus/exercise-front-end-app/builds/118458658)
+[![build status](https://travis-ci.org/suxxus/exercise-front-end-app.svg?style=flat-square)](https://travis-ci.org/suxxus/exercise-front-end-app/jobs/119194133)
+
 
 ## Demo:
 * [application](https://platform-ui-app.herokuapp.com/)
